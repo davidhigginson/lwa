@@ -108,39 +108,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <div className="prose prose-lg max-w-none">
-                <h2>About This Project</h2>
-                <p className="text-lg">{project.description}</p>
-
-                {/* 🔴 CONTENT NEEDED: The sections below use template text. 
-                    Ideally each project should have its own unique challenge description 
-                    and a real testimonial from the missionary/project lead */}
-                <h3>The Challenge</h3>
-                <p className="bg-red-50 border-l-4 border-red-500 pl-4 py-2">
-                  <span className="text-red-600 font-medium">🔴 [TEMPLATE TEXT]</span>{" "}
-                  In {project.country}, many communities face significant challenges accessing 
-                  basic necessities. Local missionaries work tirelessly to serve these communities, 
-                  but they need our support to continue their vital work.
+                <p className="text-lg leading-relaxed text-neutral-700 whitespace-pre-line">
+                  {project.description}
                 </p>
-
-                <h3>How Your Donation Helps</h3>
-                <p>
-                  Your contribution directly supports the work being done on the ground. 
-                  Every penny of your donation goes to the project – we have a separate fund 
-                  for our administrative costs.
-                </p>
-
-                <blockquote className="not-italic border-l-4 border-red-500 bg-red-50 p-6 rounded-r-lg">
-                  <p className="text-neutral-700 mb-0">
-                    <span className="text-red-600 font-medium">🔴 [QUOTE NEEDED]</span>{" "}
-                    Replace with a real quote from the missionary or project coordinator for this specific project.
-                  </p>
-                </blockquote>
-
-                <h3>Impact</h3>
-                <p>
-                  Through the dedicated work of local missionaries and your generous support, 
-                  this project is making a real difference: <strong>{project.impact}</strong>.
-                </p>
+                {project.impact && (
+                  <div className="mt-8 p-6 bg-primary-50 rounded-lg">
+                    <h3 className="text-lg font-heading text-neutral-900 mb-2">Impact</h3>
+                    <p className="text-neutral-700">{project.impact}</p>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -183,10 +159,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       <dt className="text-sm text-neutral-500">Category</dt>
                       <dd className="text-neutral-900 font-medium">{category?.name}</dd>
                     </div>
-                    <div>
-                      <dt className="text-sm text-neutral-500">Impact</dt>
-                      <dd className="text-primary-600 font-medium">{project.impact}</dd>
-                    </div>
+                    {project.impact && (
+                      <div>
+                        <dt className="text-sm text-neutral-500">Impact</dt>
+                        <dd className="text-primary-600 font-medium">{project.impact}</dd>
+                      </div>
+                    )}
                   </dl>
                 </div>
               </div>
