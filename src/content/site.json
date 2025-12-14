@@ -1,0 +1,39 @@
+{
+  "name": "The Little Way Association",
+  "tagline": "Helping the poor, needy and sick in developing countries throughout the world",
+  "description": "The Little Way Association is a charity that aims to help the poor, needy and sick in developing countries throughout the world. For over 50 years the Association has provided assistance to those in need, currently raising around £4m each year.",
+  "registeredCharity": "235703",
+  "yearFounded": 1970,
+  "annualFunding": "£4m",
+  "contact": {
+    "email": "🔴 [EMAIL NEEDED - verify correct contact email]",
+    "phone": "🔴 [PHONE NEEDED - add contact phone number]",
+    "address": "🔴 [ADDRESS NEEDED - add postal address for donations/correspondence]"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/littlewayassociation"
+  },
+  "donationUrl": "https://www.charitycheckout.co.uk/235703/Donate",
+  "navigation": [
+    { "label": "Home", "href": "/" },
+    { "label": "About Us", "href": "/about" },
+    { "label": "Our Work", "href": "/our-work" },
+    { "label": "What You Can Do", "href": "/get-involved" },
+    { "label": "Donate", "href": "/donate" },
+    { "label": "Contact Us", "href": "/contact" }
+  ],
+  "cta": {
+    "primary": "Donate Now",
+    "secondary": "Learn More"
+  },
+  "footer": {
+    "links": [
+      { "label": "About us", "href": "/about" },
+      { "label": "Our work", "href": "/our-work" },
+      { "label": "What you can do", "href": "/get-involved" },
+      { "label": "Donate", "href": "/donate" },
+      { "label": "Contact us", "href": "/contact" },
+      { "label": "Terms & conditions", "href": "/terms" }
+    ]
+  }
+}

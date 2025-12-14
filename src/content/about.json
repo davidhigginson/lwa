@@ -1,0 +1,91 @@
+{
+  "hero": {
+    "title": "About The Little Way Association",
+    "subtitle": "🔴 Carrying the love, care and compassion of Christ to those in need for over 50 years"
+  },
+  "welcome": {
+    "title": "Welcome to The Little Way Association website",
+    "content": "The Little Way Association is a charity that aims to help the poor, needy and sick in developing countries throughout the world. For over 50 years the Association has provided assistance to those in need, currently raising around £4m each year."
+  },
+  "origin": {
+    "title": "🔴 Our Name & Origin",
+    "content": "Our name comes from the \"little way\" of St. Therese of Lisieux, an enclosed Carmelite nun who lived in 19th century France. She saw her vocation as reaching far beyond the convent walls, helping those in need throughout the world. The \"little way\" involves finding the spiritual in the little things of ordinary life. In this way, all of us can play our part in creating a better world."
+  },
+  "howToHelp": {
+    "title": "🔴 How You Can Help",
+    "content": "If you would like to help us in our work, please consider supporting The Little Way Association by praying for our work, by making a donation, or by volunteering to help at our headquarters in Sacred Heart House, London."
+  },
+  "mission": {
+    "title": "🔴 Our Mission",
+    "content": "The Little Way Association is a charity that aims to help the poor, needy and sick in developing countries throughout the world. For over 50 years the Association has provided assistance to those in need, currently raising around £4m each year."
+  },
+  "supporters": {
+    "title": "🔴 Our Supporters",
+    "content": "Most of our supporters are Roman Catholics, but some of our benefactors belong to other Christian denominations and other faiths. Any donation which is sent to us by post, by banker's order, or online through this website is used entirely for the purpose(s) specified by the donor (we have a separate fund for administrative expenses)."
+  },
+  "accountability": {
+    "title": "🔴 Ensuring Your Donation Makes a Difference",
+    "content": "We make sure that the money goes to help those in the greatest need by ensuring that all projects we support are supervised by the local bishop or missionary society."
+  },
+  "whatWeFund": {
+    "title": "🔴 What Your Donations Fund",
+    "description": "Our funds provide:",
+    "items": [
+      "Food, medicines and other aid for the hungry, sick, refugees, needy children, lepers and victims of natural disasters",
+      "Funds to help build small houses and schools",
+      "Wells for communities without access to safe, fresh water",
+      "Roof mission chapels",
+      "Support for Missionary Priests, Sisters and Brothers in clinics, hospitals and orphanages",
+      "Emergency relief in times of famine and drought"
+    ]
+  },
+  "stTherese": {
+    "title": "St. Therese of Lisieux",
+    "subtitle": "🔴 Our Patroness",
+    "intro": "Therese of Lisieux is the patroness of the Little Way Association. Her life and spirituality have proved an inspiration to many, and her message of the Little Way is still as compelling and relevant today as it was over a century ago.",
+    "biography": "Therese Martin was born in Alençon, France, in 1873, the last of nine children (although only five reached adulthood). Her mother died of breast cancer when she was four, and she was raised by her father, Louis Martin. On Christmas Eve 1886, when she was nearly 14, Therese had a powerful spiritual experience that transformed her life. In May 1887, her father gave his permission for her to become a cloistered nun at the Lisieux Carmel, joining two of her sisters, Pauline and Marie. Given Therese's young age, the diocesan authorities were initially unsympathetic to her request, but she did eventually enter the Carmelite convent in Lisieux in 1888, aged 15 years and three months.",
+    "conventLife": "Therese spent the remaining nine years of her life in the convent, and it is here that she composed her spiritual autobiography, 'The Story of a Soul'. Living a hidden, simple life, she demonstrated a powerful energy and positive spirit, and a great desire to help others through her prayers. Her time in the convent was often difficult. She writes of experiencing great suffering through sickness, as well as great dryness in her prayer life, and occasional personality clashes with others in the convent. Yet despite all this, she remained faithful to God, realizing that her vocation was simply one of love, and this was the heart of the Gospel.",
+    "quote1": "I understood ... that love was everything, that it embraced all times and places .... in a word, that it was eternal.",
+    "death": "After a painful 18-month struggle with tuberculosis, she died on 30 September 1897 at the age of 24. Her last words were \"My God, I love you.\"",
+    "legacy": "In 1898, 'The Story of a Soul' was published, and by 1907, Pope Pius X stated that Therese was \"the greatest saint of modern times.\" In 1925, she was canonized by Pope Pius XI. Had she lived, she would have been just 52 years old when she was made a saint. In 1997, Pope John Paul II declared St. Therese a Doctor of the Church—in recognition of the powerful influence her life and spirituality had on the modern world.",
+    "image": "/images/about/therese.jpg"
+  },
+  "littleWay": {
+    "title": "The Little Way",
+    "intro": "So what is it about Therese's Little Way that makes her message so relevant for people today? Inspired by Jesus' words: \"Whosoever is a little one, come to me,\" she said that she would look for some means of going to heaven by a little way which is very short and very straight.",
+    "meaning": "For Therese, being a follower of Jesus meant finding holiness in the ordinary and everyday events of daily life. There are two central foundations to the Little Way. Firstly, God shows love by mercy and forgiveness. We should not be afraid of God; in fact, fear of God prevents us from developing a loving relationship with Him. Secondly, none of us can be perfect in following God. Hence, we should approach God as a child approaches a loving parent.",
+    "practice": "Therese believed that we must live out these principles in our everyday life, that even the most mundane and unexciting activities can be made holy because of the way we do them, because of the love we show in our actions. Many have been attracted to this idea because it puts holiness within the reach of all of us. Know that God is truly present and loves you—understand that each of us, whether President or pauper, can make a difference in the world by the way we choose to live and act. Each day is a gift to be used to help others. The Little Way leads away from selfishness, greed, and materialism and points towards trust in God and confidence in our ability to make a difference.",
+    "simplicity": "We can often feel that spirituality is a complicated matter, and that holiness requires great knowledge of philosophy and theology. Not true, says Therese—keep it simple. God is everywhere, present in the smallest details of our ordinary lives. The smallest action, however insignificant, done with love, is more important than great things done for personal glory or fame. \"Everything is grace,\" she said, meaning that God is present in each of us and everything, enabling us to do the ordinary things in life with extraordinary love.",
+    "modernRelevance": "In today's world, many perhaps might regard Therese's cloistered, enclosed life behind the convent walls as a waste. Yet Therese shows that such a life can be grace-filled and wonderfully productive.",
+    "prayer": "Many, perhaps most, find prayer difficult, but Therese taught simplicity. She was not keen on long prayers and often fell asleep in community prayer in the convent. Speak to God from the heart, she said, and you will develop a relationship of love and trust in a Father who loves you.",
+    "mission": "St. Therese writes: \"My mission—to make God loved—will begin after my death. I will spend my heaven doing good on earth. I will let fall a shower of roses.\" In our modern age of materialism and selfishness, when so many are searching for an authentic spirituality, Therese's Little Way of simple love for God and others has a powerful appeal. Perhaps we too can join her on 'the little way.'",
+    "closingQuote": "To live by love is to go through life showing peace and joy in hearts."
+  },
+  "appeal": {
+    "title": "Your gift to support our brothers and sisters in dire distress and in urgent need of help",
+    "mainAppeal": "Will you enable a missionary priest or sister to carry the love, care and compassion of Christ to those of our brothers and sisters in dire distress and in urgent need of help?",
+    "description": "Your gift will mean a chance of health and happiness, perhaps even the difference between life and death. Please help The Little Way Association to respond to the hundreds of requests received each week from bishops, priests and sisters all around the world appealing for help on behalf of their suffering people by donating whatever you can. Every penny you send will be gratefully received."
+  },
+  "dailyMass": {
+    "title": "🔴 Daily Mass for Our Supporters",
+    "content": "Mass is offered daily for all our supporters' intentions. Thank you so much for your prayers and your continued practical support."
+  },
+  "stats": [
+    {
+      "value": "50+",
+      "label": "🔴 Years of Service"
+    },
+    {
+      "value": "£4m",
+      "label": "🔴 Raised Annually"
+    },
+    {
+      "value": "100%",
+      "label": "🔴 Donations to Projects"
+    },
+    {
+      "value": "Daily",
+      "label": "🔴 Mass for Supporters"
+    }
+  ]
+}

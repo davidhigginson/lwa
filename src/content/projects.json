@@ -1,0 +1,176 @@
+{
+  "categories": [
+    {
+      "id": "healthcare",
+      "name": "Healthcare & Medical",
+      "description": "Supporting clinics, hospitals, and medical missions"
+    },
+    {
+      "id": "water",
+      "name": "Clean Water",
+      "description": "Digging wells and providing safe water access"
+    },
+    {
+      "id": "food",
+      "name": "Food & Nutrition",
+      "description": "Feeding programmes and emergency relief"
+    },
+    {
+      "id": "housing",
+      "name": "Homes & Shelter",
+      "description": "Building homes for families in need"
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "description": "Building schools and supporting learning"
+    },
+    {
+      "id": "children",
+      "name": "Children & Orphans",
+      "description": "Caring for vulnerable children"
+    }
+  ],
+  "projects": [
+    {
+      "id": "south-africa-aids-children",
+      "title": "AIDS Affected Children - South Africa",
+      "location": "KwaZulu-Natal, South Africa",
+      "country": "South Africa",
+      "region": "Africa",
+      "category": "children",
+      "image": "/images/projects/south-africa-children.jpg",
+      "summary": "Franciscan Sisters are looking after 75 AIDS affected children in Kwazulu-Natal, South Africa.",
+      "description": "Sr Margaret McDermott writes that: \"your funds enabled us to continue feeding and caring for these vulnerable children who have lost their parents to AIDS.\"",
+      "impact": "75 children cared for",
+      "featured": true,
+      "sourceVerified": true
+    },
+    {
+      "id": "india-wells",
+      "title": "Digging Wells - India",
+      "location": "India",
+      "country": "India",
+      "region": "Asia",
+      "category": "water",
+      "image": "/images/projects/india-wells.jpg",
+      "summary": "Many people in developing countries do not have access to safe, fresh water. Digging wells for communities is an important part of our work, particularly in drought-prone areas.",
+      "description": "Many people in developing countries do not have access to safe, fresh water. Digging wells for communities is an important part of our work, particularly in drought-prone areas. Access to clean water transforms communities, reducing disease and freeing up time for education and work.",
+      "impact": "🔴 [IMPACT DATA NEEDED]",
+      "featured": true,
+      "sourceVerified": true
+    },
+    {
+      "id": "tanzania-drought",
+      "title": "Drought and Food Shortage - Tanzania",
+      "location": "Tanzania",
+      "country": "Tanzania",
+      "region": "Africa",
+      "category": "food",
+      "image": "/images/projects/tanzania-drought.jpg",
+      "summary": "Drought due to unreliable rainfall is a constantly recurring problem in Tanzania. When the rains don't come, the crops wither and die.",
+      "description": "Drought due to unreliable rainfall is a constantly recurring problem in Tanzania. When the rains don't come, the crops wither and die. We provide emergency food relief and support to help communities survive these challenging times.",
+      "impact": "🔴 [IMPACT DATA NEEDED]",
+      "featured": true,
+      "sourceVerified": true
+    },
+    {
+      "id": "congo-dispensary",
+      "title": "Feeding Programme and Dispensary - Congo",
+      "location": "Congo",
+      "country": "Democratic Republic of Congo",
+      "region": "Africa",
+      "category": "healthcare",
+      "image": "/images/projects/congo-dispensary.jpg",
+      "summary": "Fr. Andrew Lukhale, a Consolata Father in the Congo, writes about the critical need for medical support.",
+      "description": "Fr. Andrew Lukhale, a Consolata Father in the Congo, writes: \"We have only one nurse attending to more than 10,000 people and I am grateful for the help you gave.\" Your donations help fund essential medical supplies and support for overworked healthcare workers in remote areas.",
+      "impact": "10,000+ people served",
+      "featured": true,
+      "sourceVerified": true
+    },
+    {
+      "id": "vietnam-homes",
+      "title": "Homes for Poor - Vietnam",
+      "location": "Vietnam",
+      "country": "Vietnam",
+      "region": "Asia",
+      "category": "housing",
+      "image": "/images/projects/vietnam-homes.jpg",
+      "summary": "No family can flourish without a proper home, yet millions live in shanty towns, or makeshift huts made of cardboard boxes and plastic sheeting. Many people are homeless.",
+      "description": "No family can flourish without a proper home, yet millions live in shanty towns, or makeshift huts made of cardboard boxes and plastic sheeting. Many people are homeless. We fund the construction of simple but dignified homes for families in desperate need, giving them security and a foundation for a better future.",
+      "impact": "🔴 [IMPACT DATA NEEDED]",
+      "featured": true,
+      "sourceVerified": true
+    },
+    {
+      "id": "india-rosarians-borewell",
+      "title": "Rosarians - Borewell",
+      "location": "India",
+      "country": "India",
+      "region": "Asia",
+      "category": "water",
+      "image": "/images/projects/india-borewell.jpg",
+      "summary": "🔴 [CONTENT NEEDED: Add specific description from LWA about this borewell project]",
+      "description": "🔴 [CONTENT NEEDED: Add detailed description of the Rosarians borewell project and its impact on the community]",
+      "impact": "🔴 [IMPACT DATA NEEDED]",
+      "featured": true,
+      "sourceVerified": false
+    },
+    {
+      "id": "india-leprosy",
+      "title": "Leprosy Care - India",
+      "location": "India",
+      "country": "India",
+      "region": "Asia",
+      "category": "healthcare",
+      "image": "/images/projects/india-leprosy.jpg",
+      "summary": "🔴 [CONTENT NEEDED: Add specific description about leprosy care work in India]",
+      "description": "🔴 [CONTENT NEEDED: Add detailed description of the leprosy care project, including missionary testimonials if available]",
+      "impact": "🔴 [IMPACT DATA NEEDED]",
+      "featured": false,
+      "sourceVerified": false
+    },
+    {
+      "id": "zambia-mission",
+      "title": "Zambia - Sr Cecilia Tembo",
+      "location": "Zambia",
+      "country": "Zambia",
+      "region": "Africa",
+      "category": "healthcare",
+      "image": "/images/projects/zambia-mission.jpg",
+      "summary": "🔴 [CONTENT NEEDED: Add specific description about Sr Cecilia Tembo's mission work in Zambia]",
+      "description": "🔴 [CONTENT NEEDED: Add detailed description of Sr Cecilia Tembo's work and impact in Zambia]",
+      "impact": "🔴 [IMPACT DATA NEEDED]",
+      "featured": false,
+      "sourceVerified": false
+    },
+    {
+      "id": "peru-mission",
+      "title": "Peru Mission",
+      "location": "Peru",
+      "country": "Peru",
+      "region": "South America",
+      "category": "education",
+      "image": "/images/projects/peru-mission.jpg",
+      "summary": "🔴 [CONTENT NEEDED: Add specific description about the Peru mission work]",
+      "description": "🔴 [CONTENT NEEDED: Add detailed description of the Peru mission, including what type of work is being done]",
+      "impact": "🔴 [IMPACT DATA NEEDED]",
+      "featured": false,
+      "sourceVerified": false
+    },
+    {
+      "id": "india-sisters",
+      "title": "India Sisters",
+      "location": "India",
+      "country": "India",
+      "region": "Asia",
+      "category": "healthcare",
+      "image": "/images/projects/india-sisters.jpg",
+      "summary": "🔴 [CONTENT NEEDED: Add specific description about the India Sisters mission work]",
+      "description": "🔴 [CONTENT NEEDED: Add detailed description of the India Sisters' work and their impact on communities]",
+      "impact": "🔴 [IMPACT DATA NEEDED]",
+      "featured": false,
+      "sourceVerified": false
+    }
+  ]
+}
