@@ -67,6 +67,18 @@ export interface AboutContent {
     title: string;
     subtitle: string;
   };
+  welcome: {
+    title: string;
+    content: string;
+  };
+  origin: {
+    title: string;
+    content: string;
+  };
+  howToHelp: {
+    title: string;
+    content: string;
+  };
   mission: {
     title: string;
     content: string;
@@ -81,13 +93,35 @@ export interface AboutContent {
   };
   whatWeFund: {
     title: string;
+    description: string;
     items: string[];
   };
   stTherese: {
     title: string;
-    content: string;
-    philosophy: string;
+    subtitle: string;
+    intro: string;
+    biography: string;
+    conventLife: string;
+    quote1: string;
+    death: string;
+    legacy: string;
     image: string;
+  };
+  littleWay: {
+    title: string;
+    intro: string;
+    meaning: string;
+    practice: string;
+    simplicity: string;
+    modernRelevance: string;
+    prayer: string;
+    mission: string;
+    closingQuote: string;
+  };
+  appeal: {
+    title: string;
+    mainAppeal: string;
+    description: string;
   };
   dailyMass: {
     title: string;

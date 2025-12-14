@@ -108,7 +108,7 @@ export default function HomePage() {
                 {aboutData.stTherese.title}
               </h2>
               <p className="text-neutral-600 text-lg leading-relaxed mb-6">
-                {aboutData.stTherese.content}
+                {aboutData.stTherese.intro}
               </p>
               <a 
                 href="/about" 
