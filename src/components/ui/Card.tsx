@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn, truncateText } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -91,13 +91,13 @@ export function CardDescription({ children, className }: CardDescriptionProps) {
 interface ProjectCardProps {
   title: string;
   location: string;
-  summary: string;
+  description: string;
   image: string;
   href: string;
   impact?: string;
 }
 
-export function ProjectCard({ title, location, summary, image, href, impact }: ProjectCardProps) {
+export function ProjectCard({ title, location, description, image, href, impact }: ProjectCardProps) {
   return (
     <Link href={href} className="group block">
       <Card className="h-full">
@@ -115,7 +115,9 @@ export function ProjectCard({ title, location, summary, image, href, impact }: P
             <span>{location}</span>
           </div>
           <CardTitle>{title}</CardTitle>
-          <CardDescription className="line-clamp-3">{summary}</CardDescription>
+          <CardDescription className="line-clamp-3">
+            {truncateText(description, 220)}
+          </CardDescription>
           {impact && (
             <div className="mt-4 pt-4 border-t border-neutral-100">
               <span className="text-sm font-medium text-secondary-600">{impact}</span>

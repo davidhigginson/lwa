@@ -21,4 +21,18 @@ export function slugify(text: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
+export function truncateText(text: string, maxLength: number): string {
+  const normalized = (text ?? "").trim();
+  if (normalized.length <= maxLength) return normalized;
+
+  // Prefer breaking on a word boundary.
+  const sliced = normalized.slice(0, maxLength);
+  const lastSpace = sliced.lastIndexOf(" ");
+  const base = (lastSpace > Math.floor(maxLength * 0.6) ? sliced.slice(0, lastSpace) : sliced).trimEnd();
+
+  // Avoid double-ellipsis when the source already ends with one.
+  if (base.endsWith("...") || base.endsWith("…")) return base;
+  return `${base}…`;
+}
+
 

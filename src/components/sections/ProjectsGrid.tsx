@@ -42,7 +42,7 @@ export function ProjectsGrid({
           <h2 className="text-3xl md:text-4xl font-heading text-neutral-900 mb-4">
             {title}
           </h2>
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+          <p className="text-neutral-600 max-w-2xl mx-auto">
             {subtitle}
           </p>
         </div>
@@ -58,7 +58,7 @@ export function ProjectsGrid({
               <ProjectCard
                 title={project.title}
                 location={project.location}
-                summary={project.summary}
+                description={project.description}
                 image={project.image}
                 href={`/our-work/${project.id}`}
                 impact={project.impact}

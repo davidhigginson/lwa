@@ -59,7 +59,7 @@ export default async function OurWorkPage({ searchParams }: OurWorkPageProps) {
             <h1 className="text-4xl md:text-5xl font-heading text-neutral-900 mb-6">
               Our Work Around the World
             </h1>
-            <p className="text-xl text-neutral-600">
+            <p className="text-neutral-600">
               See how your donations are making a difference in the lives of people across developing countries
             </p>
           </div>
@@ -155,7 +155,7 @@ export default async function OurWorkPage({ searchParams }: OurWorkPageProps) {
                     <ProjectCard
                       title={project.title}
                       location={project.location}
-                      summary={project.summary}
+                      description={project.description}
                       image={project.image}
                       href={`/our-work/${project.id}`}
                       impact={project.impact}

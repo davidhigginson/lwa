@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   return {
     title: project.title,
-    description: project.summary,
+    description: project.description,
   };
 }
 
@@ -78,7 +78,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </h1>
 
             <p className="text-xl text-white/90 mb-8">
-              {project.summary}
+              {project.description}
             </p>
 
             <div className="flex flex-wrap gap-4">
