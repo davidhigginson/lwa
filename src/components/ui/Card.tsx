@@ -94,10 +94,9 @@ interface ProjectCardProps {
   description: string;
   image: string;
   href: string;
-  impact?: string;
 }
 
-export function ProjectCard({ title, location, description, image, href, impact }: ProjectCardProps) {
+export function ProjectCard({ title, location, description, image, href }: ProjectCardProps) {
   return (
     <Link href={href} className="group block">
       <Card className="h-full">
@@ -118,11 +117,6 @@ export function ProjectCard({ title, location, description, image, href, impact 
           <CardDescription className="line-clamp-3">
             {truncateText(description, 220)}
           </CardDescription>
-          {impact && (
-            <div className="mt-4 pt-4 border-t border-neutral-100">
-              <span className="text-sm font-medium text-secondary-600">{impact}</span>
-            </div>
-          )}
         </CardContent>
       </Card>
     </Link>
@@ -139,7 +133,7 @@ interface StatCardProps {
 export function StatCard({ value, label, icon }: StatCardProps) {
   return (
     <div className="text-center p-6 rounded-xl bg-white/80 backdrop-blur shadow-sm">
-      {icon && <div className="mb-3 text-primary-500">{icon}</div>}
+      {icon && <div className="mb-3 text-primary-500 flex justify-center">{icon}</div>}
       <div className="text-4xl md:text-5xl font-heading text-primary-700 mb-2">{value}</div>
       <div className="text-neutral-600 text-sm uppercase tracking-wide">{label}</div>
     </div>

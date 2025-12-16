@@ -8,7 +8,6 @@ export function AboutPreview() {
     "Any donation is used entirely for the purpose(s) specified by the donor",
     "We have a separate fund for administrative expenses",
     "All projects supervised by the local bishop or missionary society",
-    "Mass is offered daily for all our supporters' intentions",
   ];
 
   return (
@@ -26,7 +25,7 @@ export function AboutPreview() {
               {aboutData.mission.title}
             </h2>
 
-            <p className="text-neutral-600 text-lg leading-relaxed mb-6">
+            <p className="text-neutral-600 leading-relaxed mb-6">
               {aboutData.mission.content}
             </p>
 
@@ -67,16 +66,6 @@ export function AboutPreview() {
                   Patroness of The Little Way Association
                 </p>
               </div>
-            </div>
-
-            {/* Floating quote card */}
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-6 max-w-xs border border-neutral-100">
-              <blockquote className="text-neutral-600 italic text-sm mb-3">
-                &ldquo;The only way I can prove my love is by scattering flowers, and these flowers are every little sacrifice, every glance and word, and the doing of the least actions for love.&rdquo;
-              </blockquote>
-              <cite className="text-neutral-900 font-medium text-sm not-italic">
-                — St. Therese of Lisieux
-              </cite>
             </div>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import { Header, Footer } from "@/components/layout";
 import "./globals.css";
 import siteData from "@/content/site.json";
+import { DEFAULT_OG_IMAGE, getMetadataBase } from "@/lib/seo";
+import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -10,14 +12,15 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const dmSerifDisplay = DM_Serif_Display({
-  weight: "400",
+const playfairDisplay = Playfair_Display({
+  weight: ["600", "700", "800", "900"],
   subsets: ["latin"],
-  variable: "--font-dm-serif",
+  variable: "--font-playfair",
   display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: getMetadataBase(),
   title: {
     default: siteData.name,
     template: `%s | ${siteData.name}`,
@@ -33,11 +36,27 @@ export const metadata: Metadata = {
     "St Therese",
     "missionary support",
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   openGraph: {
     title: siteData.name,
     description: siteData.tagline,
     type: "website",
     locale: "en_GB",
+    siteName: siteData.name,
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteData.name,
+    description: siteData.tagline,
+    images: [DEFAULT_OG_IMAGE.url],
   },
 };
 
@@ -47,13 +66,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${playfairDisplay.variable}`}>
       <body
         className="antialiased"
         style={{
           fontFamily: "var(--font-dm-sans), system-ui, sans-serif",
         }}
       >
+        <OrganizationJsonLd />
         <Header />
         <main>{children}</main>
         <Footer />

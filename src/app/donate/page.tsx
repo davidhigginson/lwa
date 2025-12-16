@@ -1,116 +1,83 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import { Heart, ExternalLink, CreditCard, Building2, CheckCircle2, Shield, ArrowRight } from "lucide-react";
+import { Heart, ExternalLink, Building2, CheckCircle2, Shield, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui";
-import { DonationForm } from "@/components/sections/DonationForm";
+import { TestimonialsGrid } from "@/components/sections";
 import siteData from "@/content/site.json";
 
 export const metadata: Metadata = {
   title: "Donate",
   description: "Make a donation to The Little Way Association and help those in greatest need around the world.",
+  alternates: { canonical: "/donate" },
+  openGraph: {
+    title: "Donate",
+    description: "Make a donation to The Little Way Association and help those in greatest need around the world.",
+    url: "/donate",
+  },
 };
 
-// 🔴 CONTENT NEEDED: Replace these example impacts with real data from LWA
-// These are placeholder examples - get actual impact data from the charity
 const donationImpact = [
-  { amount: 10, impact: "🔴 [Add real impact for £10]" },
-  { amount: 25, impact: "🔴 [Add real impact for £25]" },
-  { amount: 50, impact: "🔴 [Add real impact for £50]" },
-  { amount: 100, impact: "🔴 [Add real impact for £100]" },
-  { amount: 250, impact: "🔴 [Add real impact for £250]" },
-  { amount: 500, impact: "🔴 [Add real impact for £500]" },
+  { amount: 10, impact: "will provide emergency supplies after a natural disaster" },
+  { amount: 25, impact: "will provide food for AIDS affected children in South Africa" },
+  { amount: 50, impact: "will provide basic healthcare in a leprosy clinic" },
+  { amount: 100, impact: "will help dig a well in India" },
+  { amount: 250, impact: "will build a small house for a poor family" },
+  { amount: 500, impact: "will help towards re-roofing a Mission Chapel" },
 ];
 
-interface DonatePageProps {
-  searchParams: Promise<{ type?: string; amount?: string }>;
-}
-
-export default async function DonatePage({ searchParams }: DonatePageProps) {
-  const params = await searchParams;
-  const donationType = params.type || "single";
-  const presetAmount = params.amount ? parseInt(params.amount) : undefined;
-
+export default function DonatePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-16 md:pt-48 bg-gradient-to-b from-primary-50 to-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100/50 rounded-full blur-3xl -translate-y-1/2" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary-100/30 rounded-full blur-3xl" />
+      {/* Hero Section with CTA */}
+      <section className="relative pt-44 pb-20 md:pt-52 md:pb-28 bg-gradient-to-b from-primary-50 to-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-72 h-72 bg-primary-100/50 rounded-full blur-3xl -translate-y-1/2" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Heart className="w-4 h-4" />
-              <span>Make a Difference</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-heading text-neutral-900 mb-6">
-              Please Make a Donation
-            </h1>
-            <p className="text-xl text-neutral-600 mb-4">
-              Will you enable a missionary priest or sister to carry the love, care and compassion of Christ to those of our brothers and sisters in dire distress and in urgent need of help?
-            </p>
-            <p className="text-lg text-neutral-500">
-              Your gift will mean a chance of health and happiness, perhaps even the difference between life and death. Every penny you send will be gratefully received.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 100% Promise Banner */}
-      <section className="py-6 bg-primary-600">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
-            <CheckCircle2 className="w-8 h-8 text-white" />
-            <div>
-              <p className="text-white font-medium text-lg">
-                100% of your donation goes directly to charitable projects
-              </p>
-              <p className="text-primary-100 text-sm">
-                We have a separate fund for administrative expenses
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Donation Options */}
-      <section className="section-padding bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-heading text-neutral-900 mb-4">
-                Choose How to Donate
-              </h2>
-              <p className="text-neutral-600">
-                Select the donation method that works best for you
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Option 1: Existing CharityCheckout */}
-              <div className="bg-neutral-50 rounded-2xl p-8 border-2 border-neutral-200 hover:border-primary-300 transition-colors">
-                <div className="w-14 h-14 rounded-xl bg-primary-100 flex items-center justify-center mb-6">
-                  <ExternalLink className="w-7 h-7 text-primary-600" />
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              {/* Left Column - Hero Text */}
+              <div>
+                <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-3 py-1.5 rounded-full text-sm font-medium mb-4">
+                  <Heart className="w-4 h-4" />
+                  <span>Make a Difference</span>
                 </div>
-                <h3 className="text-2xl font-heading text-neutral-900 mb-3">
-                  Donate via CharityCheckout
-                </h3>
-                <p className="text-neutral-600 mb-6">
-                  Use our trusted CharityCheckout platform for a quick and secure donation. 
-                  This is our established donation system used for many years.
+                <h1 className="text-3xl md:text-4xl font-heading text-neutral-900 mb-4">
+                  Please Make a Donation
+                </h1>
+                <p className="text-neutral-600 text-base md:text-lg mb-4">
+                  Enable missionary priests and sisters to carry the love and compassion of Christ to those in dire need. Your gift could mean the difference between life and death.
                 </p>
-                <ul className="space-y-2 mb-8">
-                  <li className="flex items-center gap-2 text-sm text-neutral-600">
+                <p className="text-neutral-600 text-base md:text-lg">
+                  Whether you give once or set up a regular donation, every contribution makes a lasting difference in the lives of the poorest of the poor around the world.
+                </p>
+              </div>
+
+              {/* Right Column - Donation CTA Card */}
+              <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-xl p-8 border-2 border-primary-200 shadow-lg">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-lg bg-primary-600 flex items-center justify-center flex-shrink-0">
+                    <ExternalLink className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-heading text-neutral-900 mb-1">
+                      Donate
+                    </h2>
+                    <p className="text-neutral-600">
+                      Our trusted platform for quick and secure donations
+                    </p>
+                  </div>
+                </div>
+                <ul className="flex flex-wrap gap-x-6 gap-y-2 mb-6 text-sm text-neutral-600">
+                  <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-primary-500" />
-                    Quick and easy process
+                    Quick & easy
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-primary-500" />
-                    Secure payment processing
+                    Secure payment
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-primary-500" />
-                    Gift Aid option available
+                    Gift Aid option
                   </li>
                 </ul>
                 <Button
@@ -119,54 +86,11 @@ export default async function DonatePage({ searchParams }: DonatePageProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="primary"
-                  size="lg"
                   className="w-full"
+                  size="lg"
                 >
-                  Donate with CharityCheckout
+                  Donate Now
                   <ExternalLink className="w-5 h-5" />
-                </Button>
-              </div>
-
-              {/* Option 2: Modern Stripe-style (New) */}
-              <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8 border-2 border-primary-200 relative overflow-hidden">
-                <div className="absolute top-4 right-4">
-                  <span className="px-3 py-1 bg-secondary-500 text-white text-xs font-medium rounded-full">
-                    NEW
-                  </span>
-                </div>
-                <div className="w-14 h-14 rounded-xl bg-primary-600 flex items-center justify-center mb-6">
-                  <CreditCard className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-2xl font-heading text-neutral-900 mb-3">
-                  Quick Donate
-                </h3>
-                <p className="text-neutral-600 mb-6">
-                  Use our new streamlined donation form. Choose an amount, add your details, 
-                  and complete your donation in seconds.
-                </p>
-                <ul className="space-y-2 mb-8">
-                  <li className="flex items-center gap-2 text-sm text-neutral-600">
-                    <CheckCircle2 className="w-4 h-4 text-primary-500" />
-                    Modern, fast checkout
-                  </li>
-                  <li className="flex items-center gap-2 text-sm text-neutral-600">
-                    <CheckCircle2 className="w-4 h-4 text-primary-500" />
-                    Card & Apple/Google Pay
-                  </li>
-                  <li className="flex items-center gap-2 text-sm text-neutral-600">
-                    <CheckCircle2 className="w-4 h-4 text-primary-500" />
-                    One-time or monthly options
-                  </li>
-                </ul>
-                <Button
-                  as="a"
-                  href="#donate-form"
-                  variant="secondary"
-                  size="lg"
-                  className="w-full"
-                >
-                  Use Quick Donate
-                  <ArrowRight className="w-5 h-5" />
                 </Button>
               </div>
             </div>
@@ -174,15 +98,23 @@ export default async function DonatePage({ searchParams }: DonatePageProps) {
         </div>
       </section>
 
-      {/* Quick Donate Form */}
-      <section id="donate-form" className="section-padding bg-neutral-50">
+      {/* 100% Promise Banner */}
+      <section className="py-3 bg-primary-600">
         <div className="container mx-auto px-4">
-          <DonationForm 
-            defaultType={donationType as 'single' | 'monthly'} 
-            presetAmount={presetAmount}
-          />
+          <div className="flex items-center justify-center gap-2 text-center">
+            <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0" />
+            <p className="text-white font-medium text-sm">
+              100% of your donation goes directly to charitable projects
+            </p>
+          </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsGrid 
+        title="Words from Those We Serve"
+        subtitle="Messages of gratitude from missionaries around the world"
+      />
 
       {/* Impact Section */}
       <section className="section-padding bg-white">
@@ -198,18 +130,17 @@ export default async function DonatePage({ searchParams }: DonatePageProps) {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
             {donationImpact.map((item) => (
-              <Link
+              <div
                 key={item.amount}
-                href={`#donate-form`}
-                className="group bg-neutral-50 hover:bg-primary-50 rounded-xl p-6 text-center transition-all hover:shadow-lg hover:-translate-y-1"
+                className="bg-neutral-50 rounded-xl p-6 text-center"
               >
-                <div className="text-3xl font-heading text-primary-600 mb-2 group-hover:text-primary-700">
+                <div className="text-3xl font-heading text-primary-600 mb-2">
                   £{item.amount}
                 </div>
-                <p className="text-neutral-600 text-sm group-hover:text-neutral-700">
+                <p className="text-neutral-600 text-sm">
                   {item.impact}
                 </p>
-              </Link>
+              </div>
             ))}
           </div>
         </div>

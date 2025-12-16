@@ -362,7 +362,7 @@ export function DonationForm({ defaultType = "single", presetAmount }: DonationF
             <div className="p-8 space-y-6">
               {/* Summary Card */}
               <div className="bg-primary-50 rounded-xl p-6">
-                <h3 className="font-medium text-neutral-900 mb-4">Donation Summary</h3>
+                <h3 className="font-bold text-neutral-900 mb-4">Donation Summary</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-neutral-600">Type</span>

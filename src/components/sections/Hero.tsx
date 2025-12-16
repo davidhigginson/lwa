@@ -18,7 +18,6 @@ interface HeroProps {
   };
 }
 
-// 🔴 CONTENT REVIEW: These carousel messages can be customized to match LWA's messaging
 const heroImages = [
   {
     src: "/images/projects/kids.png",
@@ -87,16 +86,11 @@ export function Hero({
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
-              <Heart className="w-4 h-4" />
-              <span>Over 50 Years of Service</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-6 animate-fade-in-up drop-shadow-lg">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-6 animate-fade-in-up">
               {title}
             </h1>
             
-            <p className="text-lg md:text-xl text-white/95 mb-8 max-w-xl mx-auto lg:mx-0 animate-fade-in-up delay-100 drop-shadow-md">
+            <p className="text-lg md:text-xl text-white/95 mb-8 max-w-xl mx-auto lg:mx-0 animate-fade-in-up delay-100">
               {subtitle}
             </p>
 
@@ -147,7 +141,7 @@ export function Hero({
                     src={image.src}
                     alt={image.alt}
                     fill
-                    className="object-cover"
+                    className="object-cover object-right"
                     priority={index === 0}
                     sizes="(max-width: 1024px) 0vw, 50vw"
                   />
@@ -192,20 +186,6 @@ export function Hero({
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
-              </div>
-            </div>
-            
-            {/* Floating card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 max-w-xs animate-fade-in-up delay-400 z-30">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-secondary-100 flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">🙏</span>
-                </div>
-                <div>
-                  <p className="text-sm text-neutral-600">
-                    &ldquo;Mass is offered daily for all our supporters&apos; intentions&rdquo;
-                  </p>
-                </div>
               </div>
             </div>
           </div>

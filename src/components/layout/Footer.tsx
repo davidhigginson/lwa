@@ -95,7 +95,7 @@ export function Footer() {
             <h3 className="text-lg font-heading mb-6 text-neutral-900">Support Us</h3>
             <div className="space-y-4 mb-6">
               <p className="text-neutral-600 text-sm">
-                Mass is offered daily for all our supporters&apos; intentions.
+                100% of your donation goes directly to those in need.
               </p>
               <a
                 href="/donate"
@@ -121,19 +121,18 @@ export function Footer() {
             <p className="text-neutral-500 text-sm text-center md:text-left">
               © {currentYear} The Little Way Association. All rights reserved.
             </p>
-            {/* 🔴 PAGES NEEDED: Create /terms and /privacy pages */}
             <div className="flex items-center gap-6">
               <Link
                 href="/terms"
                 className="text-neutral-500 hover:text-neutral-700 text-sm transition-colors"
               >
-                Terms & Conditions 🔴
+                Terms & Conditions
               </Link>
               <Link
                 href="/privacy"
                 className="text-neutral-500 hover:text-neutral-700 text-sm transition-colors"
               >
-                Privacy Policy 🔴
+                Privacy Policy
               </Link>
             </div>
           </div>

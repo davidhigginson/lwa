@@ -61,7 +61,6 @@ export function ProjectsGrid({
                 description={project.description}
                 image={project.image}
                 href={`/our-work/${project.id}`}
-                impact={project.impact}
               />
             </div>
           ))}

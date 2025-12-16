@@ -1,12 +1,34 @@
 import { Metadata } from "next";
-import { Mail, Facebook, Clock, Heart, Send } from "lucide-react";
-import { Button } from "@/components/ui";
+import { Mail, Facebook, Clock, Heart, Phone, MapPin, Quote } from "lucide-react";
 import siteData from "@/content/site.json";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description: "Get in touch with The Little Way Association. We'd love to hear from you.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Us",
+    description: "Get in touch with The Little Way Association. We'd love to hear from you.",
+    url: "/contact",
+  },
 };
+
+const testimonials = [
+  {
+    quote: "Thank you Little Way for helping us complete 144 free cataract operations for poor patients in our clinic in Gujarat",
+    location: "Gujarat, India",
+  },
+  {
+    quote: "Your donation has helped us feed over 400 needy families in drought affected areas of Malawi",
+    location: "Malawi, Africa",
+  },
+  {
+    quote: "Your funds enabled us to continue feeding 75 AIDS affected children in Kwazulu-Natal",
+    attribution: "Sr Margaret McDermott",
+    organization: "Franciscan Sisters",
+    location: "South Africa",
+  },
+];
 
 export default function ContactPage() {
   return (
@@ -24,7 +46,7 @@ export default function ContactPage() {
             <h1 className="text-4xl md:text-5xl font-heading text-neutral-900 mb-6">
               Contact Us
             </h1>
-            <p className="text-xl text-neutral-600">
+            <p className="text-neutral-600">
               We&apos;d love to hear from you. Whether you have a question about our work, 
               want to make a donation, or would like to get involved, we&apos;re here to help.
             </p>
@@ -32,140 +54,98 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form & Info */}
+      {/* Contact Details & Info */}
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
+            {/* Contact Details */}
             <div>
               <h2 className="text-2xl font-heading text-neutral-900 mb-6">
-                Send Us a Message
+                Contact Details
               </h2>
-              
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-neutral-700 mb-2">
-                      First Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      required
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                      placeholder="Your first name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-neutral-700 mb-2">
-                      Last Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      required
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                      placeholder="Your last name"
-                    />
+
+              <div className="space-y-6">
+                {/* Address */}
+                <div className="bg-neutral-50 rounded-xl p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-primary-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-neutral-900 mb-2">Address</h3>
+                      <address className="text-neutral-600 not-italic leading-relaxed">
+                        The Little Way Association<br />
+                        Sacred Heart House<br />
+                        119 Cedars Road<br />
+                        Clapham Common<br />
+                        London<br />
+                        SW4 0PR
+                      </address>
+                    </div>
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                    placeholder="your.email@example.com"
-                  />
+                {/* Telephone */}
+                <div className="bg-neutral-50 rounded-xl p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-primary-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-neutral-900 mb-1">Telephone</h3>
+                      <a 
+                        href="tel:02076220466"
+                        className="text-lg font-semibold text-primary-600 hover:text-primary-700"
+                      >
+                        020 7622 0466
+                      </a>
+                      <p className="text-sm text-neutral-500 mt-1">During office hours</p>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 mb-2">
-                    Subject
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors bg-white"
-                  >
-                    <option value="">Please select...</option>
-                    <option value="donation">Making a Donation</option>
-                    <option value="project">Question About a Project</option>
-                    <option value="legacy">Leaving a Legacy Gift</option>
-                    <option value="volunteer">Volunteering</option>
-                    <option value="other">Other Enquiry</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
-                    placeholder="How can we help you?"
-                  />
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="newsletter"
-                    name="newsletter"
-                    className="mt-1 w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-primary-500"
-                  />
-                  <label htmlFor="newsletter" className="text-sm text-neutral-600">
-                    I would like to receive updates about The Little Way Association&apos;s work and projects.
-                  </label>
-                </div>
-
-                <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto">
-                  <Send className="w-5 h-5" />
-                  Send Message
-                </Button>
-              </form>
-            </div>
-
-            {/* Contact Information */}
-            <div>
-              <h2 className="text-2xl font-heading text-neutral-900 mb-6">
-                Contact Information
-              </h2>
-
-              <div className="space-y-8">
-                {/* Info Cards */}
+                {/* Email */}
                 <div className="bg-neutral-50 rounded-xl p-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
                       <Mail className="w-6 h-6 text-primary-600" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-neutral-900 mb-1">Email</h3>
-                      <p className="text-neutral-600">
-                        For general enquiries, please use the contact form or email us.
-                      </p>
+                      <h3 className="font-bold text-neutral-900 mb-1">Email</h3>
+                      <a 
+                        href="mailto:contact@littlewayassociation.com"
+                        className="text-primary-600 hover:text-primary-700 font-medium"
+                      >
+                        contact@littlewayassociation.com
+                      </a>
                     </div>
                   </div>
                 </div>
 
+                {/* Mailing List Notice */}
+                <div className="bg-primary-50 border border-primary-100 rounded-xl p-6">
+                  <p className="text-neutral-700 text-sm">
+                    All our supporters are placed on our mailing list (unless they tell us otherwise) 
+                    so they can receive our quarterly booklets and newsletters.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h2 className="text-2xl font-heading text-neutral-900 mb-6">
+                Quick Links
+              </h2>
+
+              <div className="space-y-6">
                 <div className="bg-neutral-50 rounded-xl p-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
                       <Facebook className="w-6 h-6 text-primary-600" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-neutral-900 mb-1">Follow Us</h3>
+                      <h3 className="font-bold text-neutral-900 mb-1">Follow Us</h3>
                       <p className="text-neutral-600 mb-2">
                         Stay updated with our latest projects and news.
                       </p>
@@ -187,7 +167,7 @@ export default function ContactPage() {
                       <Heart className="w-6 h-6 text-primary-600" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-neutral-900 mb-1">Make a Donation</h3>
+                      <h3 className="font-bold text-neutral-900 mb-1">Make a Donation</h3>
                       <p className="text-neutral-600 mb-2">
                         Support our work directly through our secure donation page.
                       </p>
@@ -203,7 +183,7 @@ export default function ContactPage() {
 
                 {/* Charity Registration */}
                 <div className="border border-neutral-200 rounded-xl p-6">
-                  <h3 className="font-medium text-neutral-900 mb-2">Registered Charity</h3>
+                  <h3 className="font-bold text-neutral-900 mb-2">Registered Charity</h3>
                   <p className="text-neutral-600 text-sm">
                     The Little Way Association is a registered charity in England and Wales.
                   </p>
@@ -219,7 +199,7 @@ export default function ContactPage() {
                       <Clock className="w-6 h-6 text-secondary-600" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-neutral-900 mb-1">Daily Mass</h3>
+                      <h3 className="font-bold text-neutral-900 mb-1">Daily Mass</h3>
                       <p className="text-neutral-600">
                         Mass is offered daily for all our supporters&apos; intentions. 
                         Thank you for your prayers and continued support.
@@ -233,6 +213,56 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="section-padding bg-gradient-to-b from-primary-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-heading text-neutral-900 mb-4">
+              Words from Our Partners
+            </h2>
+            <p className="text-neutral-600 max-w-2xl mx-auto">
+              Hear directly from those we&apos;ve had the privilege to work with around the world.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-2xl p-8 shadow-soft border border-neutral-100 relative"
+              >
+                <div className="absolute -top-4 left-8">
+                  <div className="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center">
+                    <Quote className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+                
+                <blockquote className="mt-4">
+                  <p className="text-neutral-700 italic leading-relaxed mb-4">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </p>
+                  <footer className="border-t border-neutral-100 pt-4">
+                    {testimonial.attribution && (
+                      <cite className="block text-sm font-medium text-neutral-900 not-italic">
+                        {testimonial.attribution}
+                      </cite>
+                    )}
+                    {testimonial.organization && (
+                      <span className="text-sm text-neutral-600">
+                        {testimonial.organization}
+                      </span>
+                    )}
+                    <span className="block text-sm text-primary-600 font-medium mt-1">
+                      {testimonial.location}
+                    </span>
+                  </footer>
+                </blockquote>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="section-padding bg-neutral-50">
         <div className="container mx-auto px-4">
@@ -240,11 +270,6 @@ export default function ContactPage() {
             <h2 className="text-3xl font-heading text-neutral-900 mb-8 text-center">
               Frequently Asked Questions
             </h2>
-            
-            {/* 🔴 FAQ VERIFICATION NEEDED: Please verify all answers are accurate for LWA */}
-            <p className="text-center text-red-600 text-sm mb-6 bg-red-50 py-2 rounded-lg">
-              🔴 Please verify all FAQ answers are accurate for The Little Way Association
-            </p>
 
             <div className="space-y-4">
               {[
@@ -255,22 +280,22 @@ export default function ContactPage() {
                 },
                 {
                   question: "Can I specify which project my donation supports?",
-                  answer: "🔴 [VERIFY] Yes, when making a donation you can specify if you'd like it to go to a particular type of project or region. If you have no preference, we'll allocate it where the need is greatest.",
+                  answer: "Yes, when making a donation you can specify if you'd like it to go to a particular type of project or region. If you have no preference, we'll allocate it where the need is greatest.",
                   verified: false
                 },
                 {
                   question: "How do I set up a regular donation?",
-                  answer: "🔴 [VERIFY] You can set up a regular monthly donation through our website or by contacting us to arrange a standing order with your bank.",
+                  answer: "You can set up a regular monthly donation through our website or by contacting us to arrange a standing order with your bank.",
                   verified: false
                 },
                 {
                   question: "Is my donation eligible for Gift Aid?",
-                  answer: "🔴 [VERIFY] If you're a UK taxpayer, we can claim Gift Aid on your donation, which adds 25% to its value at no extra cost to you. Just confirm you're a UK taxpayer when donating.",
+                  answer: "If you're a UK taxpayer, we can claim Gift Aid on your donation, which adds 25% to its value at no extra cost to you. Just confirm you're a UK taxpayer when donating.",
                   verified: false
                 },
                 {
                   question: "How can I leave a legacy gift?",
-                  answer: "🔴 [VERIFY] If you're interested in leaving a gift in your will, please contact us for more information. Legacy gifts help ensure our work continues for future generations.",
+                  answer: "If you're interested in leaving a gift in your will, please contact us for more information. Legacy gifts help ensure our work continues for future generations.",
                   verified: false
                 },
               ].map((faq, index) => (

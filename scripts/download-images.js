@@ -7,7 +7,7 @@ const path = require('path');
 const imageMappings = [
   {
     originalName: 'South Africa',
-    filename: 'south-africa-children.jpg',
+    filename: 'south-africa-aids.jpg',
     project: 'south-africa-aids-children'
   },
   {
@@ -17,7 +17,7 @@ const imageMappings = [
   },
   {
     originalName: 'Tanzania food shortage',
-    filename: 'tanzania-drought.jpg',
+    filename: 'tanzania-food-shortage.jpg',
     project: 'tanzania-drought'
   },
   {

@@ -18,8 +18,8 @@ const stats = [
     icon: <Globe className="w-8 h-8" />,
   },
   {
-    value: "Daily",
-    label: "Mass for Supporters",
+    value: "Global",
+    label: "Reach Worldwide",
     icon: <Users className="w-8 h-8" />,
   },
 ];
@@ -42,7 +42,7 @@ export function StatsSection({ variant = "default" }: StatsSectionProps) {
           <h2 className="text-3xl md:text-4xl font-heading text-white mb-4">
             Making a Real Difference
           </h2>
-          <p className="text-primary-100 text-lg max-w-2xl mx-auto">
+          <p className="text-primary-100 max-w-2xl mx-auto">
             Every donation, no matter how small, helps us support those in the greatest need
           </p>
         </div>

@@ -59,7 +59,7 @@
   --muted-foreground: var(--color-neutral-500);
 
   /* Typography */
-  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-heading: var(--font-playfair, 'Playfair Display'), Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   
   /* Spacing Scale */
@@ -157,7 +157,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: 1.2;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 /* Focus styles for accessibility */
@@ -371,4 +371,14 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: var(--space-2xl);
     padding-bottom: var(--space-2xl);
   }
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

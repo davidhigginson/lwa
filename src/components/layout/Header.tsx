@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X, Heart, Facebook } from "lucide-react";
 import siteData from "@/content/site.json";
 
 export function Header() {
@@ -80,6 +80,15 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
+            <a
+              href={siteData.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:bg-[#166fe5] transition-colors"
+              aria-label="Follow us on Facebook"
+            >
+              <Facebook className="w-5 h-5" />
+            </a>
             <Button as="a" href="/donate" variant="primary" size="sm">
               <Heart className="w-4 h-4" />
               Donate Now

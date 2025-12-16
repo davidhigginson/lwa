@@ -40,7 +40,7 @@ export function CTASection({
             {title}
           </h2>
           
-          <p className="text-lg text-neutral-300 mb-10 leading-relaxed">
+          <p className="text-neutral-300 mb-10 leading-relaxed">
             {description}
           </p>
 

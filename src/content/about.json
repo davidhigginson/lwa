@@ -16,7 +16,7 @@
     "content": "If you would like to help us in our work, please consider supporting The Little Way Association by praying for our work, by making a donation, or by volunteering to help at our headquarters in Sacred Heart House, London."
   },
   "mission": {
-    "title": "🔴 Our Mission",
+    "title": "Our Mission",
     "content": "The Little Way Association is a charity that aims to help the poor, needy and sick in developing countries throughout the world. For over 50 years the Association has provided assistance to those in need, currently raising around £4m each year."
   },
   "supporters": {
@@ -66,26 +66,22 @@
     "mainAppeal": "Will you enable a missionary priest or sister to carry the love, care and compassion of Christ to those of our brothers and sisters in dire distress and in urgent need of help?",
     "description": "Your gift will mean a chance of health and happiness, perhaps even the difference between life and death. Please help The Little Way Association to respond to the hundreds of requests received each week from bishops, priests and sisters all around the world appealing for help on behalf of their suffering people by donating whatever you can. Every penny you send will be gratefully received."
   },
-  "dailyMass": {
-    "title": "🔴 Daily Mass for Our Supporters",
-    "content": "Mass is offered daily for all our supporters' intentions. Thank you so much for your prayers and your continued practical support."
-  },
   "stats": [
     {
       "value": "50+",
-      "label": "🔴 Years of Service"
+      "label": "Years of Service"
     },
     {
       "value": "£4m",
-      "label": "🔴 Raised Annually"
+      "label": "Raised Annually"
     },
     {
       "value": "100%",
-      "label": "🔴 Donations to Projects"
+      "label": "Donations to Projects"
     },
     {
-      "value": "Daily",
-      "label": "🔴 Mass for Supporters"
+      "value": "Global",
+      "label": "Reach Worldwide"
     }
   ]
 }
