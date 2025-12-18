@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Mail, Facebook, Clock, Heart, Phone, MapPin, Quote } from "lucide-react";
+import { Mail, Facebook, Clock, Heart, Phone, MapPin } from "lucide-react";
 import siteData from "@/content/site.json";
 
 export const metadata: Metadata = {
@@ -13,28 +13,11 @@ export const metadata: Metadata = {
   },
 };
 
-const testimonials = [
-  {
-    quote: "Thank you Little Way for helping us complete 144 free cataract operations for poor patients in our clinic in Gujarat",
-    location: "Gujarat, India",
-  },
-  {
-    quote: "Your donation has helped us feed over 400 needy families in drought affected areas of Malawi",
-    location: "Malawi, Africa",
-  },
-  {
-    quote: "Your funds enabled us to continue feeding 75 AIDS affected children in Kwazulu-Natal",
-    attribution: "Sr Margaret McDermott",
-    organization: "Franciscan Sisters",
-    location: "South Africa",
-  },
-];
-
 export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-40 pb-12 md:pt-48 md:pb-14 bg-gradient-to-b from-primary-50 to-white overflow-hidden">
+      <section className="relative pt-40 pb-8 md:pt-48 md:pb-10 bg-gradient-to-b from-primary-50 to-white overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100/50 rounded-full blur-3xl -translate-y-1/2" />
         
         <div className="container mx-auto px-4 relative z-10">
@@ -55,7 +38,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Details & Info */}
-      <section className="section-padding bg-white">
+      <section className="pt-12 md:pt-16 pb-20 md:pb-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Details */}
@@ -209,56 +192,6 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="section-padding bg-gradient-to-b from-primary-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading text-neutral-900 mb-4">
-              Words from Our Partners
-            </h2>
-            <p className="text-neutral-600 max-w-2xl mx-auto">
-              Hear directly from those we&apos;ve had the privilege to work with around the world.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-2xl p-8 shadow-soft border border-neutral-100 relative"
-              >
-                <div className="absolute -top-4 left-8">
-                  <div className="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center">
-                    <Quote className="w-5 h-5 text-white" />
-                  </div>
-                </div>
-                
-                <blockquote className="mt-4">
-                  <p className="text-neutral-700 italic leading-relaxed mb-4">
-                    &ldquo;{testimonial.quote}&rdquo;
-                  </p>
-                  <footer className="border-t border-neutral-100 pt-4">
-                    {testimonial.attribution && (
-                      <cite className="block text-sm font-medium text-neutral-900 not-italic">
-                        {testimonial.attribution}
-                      </cite>
-                    )}
-                    {testimonial.organization && (
-                      <span className="text-sm text-neutral-600">
-                        {testimonial.organization}
-                      </span>
-                    )}
-                    <span className="block text-sm text-primary-600 font-medium mt-1">
-                      {testimonial.location}
-                    </span>
-                  </footer>
-                </blockquote>
-              </div>
-            ))}
           </div>
         </div>
       </section>
