@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Heart, MapPin, Filter, Droplets, Home, GraduationCap, Utensils, Baby } from "lucide-react";
+import { Heart, MapPin, Filter, Droplets, Home, GraduationCap, Utensils, Baby, Bath, Church, AlertTriangle, LayoutGrid } from "lucide-react";
 import { ProjectCard, Button } from "@/components/ui";
 import { CTASection } from "@/components/sections";
 import projectsData from "@/content/projects.json";
@@ -23,6 +23,9 @@ const categoryIcons: Record<string, React.ReactNode> = {
   housing: <Home className="w-5 h-5" />,
   education: <GraduationCap className="w-5 h-5" />,
   children: <Baby className="w-5 h-5" />,
+  sanitation: <Bath className="w-5 h-5" />,
+  religion: <Church className="w-5 h-5" />,
+  emergency: <AlertTriangle className="w-5 h-5" />,
 };
 
 interface OurWorkPageProps {
@@ -81,12 +84,13 @@ export default async function OurWorkPage({ searchParams }: OurWorkPageProps) {
             <div className="flex gap-2 overflow-x-auto pb-3 px-4 md:px-0 md:flex-wrap scrollbar-hide snap-x snap-mandatory">
               <Link
                 href="/our-work"
-                className={`flex-shrink-0 snap-start px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
+                className={`flex-shrink-0 snap-start inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
                   !selectedCategory
                     ? "bg-primary-600 text-white shadow-sm"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
                 }`}
               >
+                <LayoutGrid className="w-4 h-4" />
                 All Projects
               </Link>
               {projectsData.categories.map((category) => (
