@@ -44,6 +44,12 @@ const testimonials: Testimonial[] = [
     location: "South Africa",
   },
   {
+    quote: "We have selected 25 children who are weak and malnourished and they are provided with milk, egg and biscuits in the morning before they go to school",
+    author: "Holy Spirit Sisters",
+    location: "India",
+    featured: true,
+  },
+  {
     quote: "The Little Way helped to establish the Little Way Sisters of St Therese in Myanmar. We are forever grateful for your support.",
     location: "Myanmar",
   },

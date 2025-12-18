@@ -26,13 +26,12 @@ const categoryIcons: Record<string, React.ReactNode> = {
 };
 
 interface OurWorkPageProps {
-  searchParams: Promise<{ category?: string; region?: string }>;
+  searchParams: Promise<{ category?: string }>;
 }
 
 export default async function OurWorkPage({ searchParams }: OurWorkPageProps) {
   const params = await searchParams;
   const selectedCategory = params.category;
-  const selectedRegion = params.region;
 
   let filteredProjects = projectsData.projects;
 
@@ -42,18 +41,10 @@ export default async function OurWorkPage({ searchParams }: OurWorkPageProps) {
     );
   }
 
-  if (selectedRegion) {
-    filteredProjects = filteredProjects.filter(
-      (p) => p.region === selectedRegion
-    );
-  }
-
-  const regions = [...new Set(projectsData.projects.map((p) => p.region))];
-
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-40 pb-16 md:pt-48 bg-gradient-to-b from-primary-50 to-white overflow-hidden">
+      <section className="relative pt-40 pb-10 md:pt-48 md:pb-12 bg-gradient-to-b from-primary-50 to-white overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100/50 rounded-full blur-3xl -translate-y-1/2" />
         
         <div className="container mx-auto px-4 relative z-10">
@@ -116,38 +107,6 @@ export default async function OurWorkPage({ searchParams }: OurWorkPageProps) {
             </div>
           </div>
 
-          {/* Region Pills - Compact Row on Mobile */}
-          <div className="relative mt-1">
-            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none md:hidden" />
-            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none md:hidden" />
-            
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 px-4 md:px-0 md:flex-wrap scrollbar-hide">
-              <span className="flex-shrink-0 text-xs md:text-sm text-neutral-500 font-medium">Region:</span>
-              <Link
-                href={selectedCategory ? `/our-work?category=${selectedCategory}` : "/our-work"}
-                className={`flex-shrink-0 px-3 py-1 rounded-full text-xs md:text-sm transition-all whitespace-nowrap ${
-                  !selectedRegion
-                    ? "bg-secondary-100 text-secondary-700 font-medium"
-                    : "bg-neutral-50 text-neutral-500 hover:bg-neutral-100"
-                }`}
-              >
-                All
-              </Link>
-              {regions.map((region) => (
-                <Link
-                  key={region}
-                  href={`/our-work?${selectedCategory ? `category=${selectedCategory}&` : ""}region=${region}`}
-                  className={`flex-shrink-0 px-3 py-1 rounded-full text-xs md:text-sm transition-all whitespace-nowrap ${
-                    selectedRegion === region
-                      ? "bg-secondary-100 text-secondary-700 font-medium"
-                      : "bg-neutral-50 text-neutral-500 hover:bg-neutral-100"
-                  }`}
-                >
-                  {region}
-                </Link>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -156,12 +115,6 @@ export default async function OurWorkPage({ searchParams }: OurWorkPageProps) {
         <div className="container mx-auto px-4">
           {filteredProjects.length > 0 ? (
             <>
-              <p className="text-neutral-500 mb-8">
-                Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? "s" : ""}
-                {selectedCategory && ` in ${projectsData.categories.find(c => c.id === selectedCategory)?.name}`}
-                {selectedRegion && ` from ${selectedRegion}`}
-              </p>
-              
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredProjects.map((project, index) => (
                   <div

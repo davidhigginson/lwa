@@ -95,10 +95,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </h1>
 
               <div className="flex flex-wrap gap-4">
-                <Button as="a" href="/donate" variant="secondary" size="lg">
-                  <Heart className="w-5 h-5" />
-                  Support This Project
-                </Button>
                 <Button 
                   as="a" 
                   href="/our-work" 
@@ -147,15 +143,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              {/* Donation Card */}
+              {/* Donation CTA */}
               <div className="sticky top-24">
-                <div className="bg-primary-600 rounded-2xl p-8 mb-8">
-                  <h3 className="text-xl font-heading text-white mb-4">
-                    Support This Project
-                  </h3>
-                  <p className="text-primary-100 mb-6">
-                    Your donation will help continue this vital work in {project.location}.
-                  </p>
+                <div className="mb-8">
                   <Button as="a" href="/donate" variant="secondary" className="w-full" size="lg">
                     <Heart className="w-5 h-5" />
                     Donate Now

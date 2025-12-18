@@ -34,7 +34,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 md:pt-48 bg-gradient-to-b from-primary-50 to-white overflow-hidden">
+      <section className="relative pt-40 pb-12 md:pt-48 md:pb-14 bg-gradient-to-b from-primary-50 to-white overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100/50 rounded-full blur-3xl -translate-y-1/2" />
         
         <div className="container mx-auto px-4 relative z-10">
