@@ -13,7 +13,7 @@
   "social": {
     "facebook": "https://www.facebook.com/littlewayassociation"
   },
-  "donationUrl": "https://www.charitycheckout.co.uk/235703/Donate",
+  "donationUrl": "https://littlewayassociation.enthuse.com/Donate#!/",
   "navigation": [
     { "label": "Home", "href": "/" },
     { "label": "About Us", "href": "/about" },

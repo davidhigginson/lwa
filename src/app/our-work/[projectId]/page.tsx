@@ -69,7 +69,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-primary-600 to-primary-800 overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-white/70 text-sm mb-8">
+          <nav className="flex items-center gap-2 text-white/70 text-sm mb-3">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-4 h-4" />
             <Link href="/our-work" className="hover:text-white transition-colors">Our Work</Link>
@@ -77,9 +77,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <span className="text-white">{project.title}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Back to Projects Button */}
+          <div className="mb-8">
+            <Link 
+              href="/our-work" 
+              className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Projects
+            </Link>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Column - Text Content */}
-            <div>
+            <div className="flex flex-col justify-center -mt-8 lg:-mt-12">
               <div className="flex items-center gap-3 mb-6">
                 <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm">
                   {category?.name}
@@ -90,22 +101,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading text-white mb-8">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading text-white">
                 {project.title}
               </h1>
-
-              <div className="flex flex-wrap gap-4">
-                <Button 
-                  as="a" 
-                  href="/our-work" 
-                  variant="ghost" 
-                  size="lg" 
-                  className="text-white hover:bg-white/10"
-                >
-                  <ArrowLeft className="w-5 h-5" />
-                  Back to Projects
-                </Button>
-              </div>
             </div>
 
             {/* Right Column - Project Image */}
@@ -132,13 +130,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Main Content - Blue box style */}
+            {/* Main Content */}
             <div className="lg:col-span-2">
-              <div className="bg-primary-50 rounded-2xl p-8">
-                <p className="text-lg leading-relaxed text-neutral-700 whitespace-pre-line">
-                  {project.description}
-                </p>
-              </div>
+              <p className="text-xl leading-relaxed text-black whitespace-pre-line">
+                {project.description}
+              </p>
             </div>
 
             {/* Sidebar */}
