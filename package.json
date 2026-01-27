@@ -7,7 +7,8 @@
     "build": "node scripts/build.js",
     "build:tina": "tinacms build && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:tinacloud": "node scripts/check-tinacloud.js"
   },
   "dependencies": {
     "@tinacms/cli": "^2.1.2",
