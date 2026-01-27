@@ -6,20 +6,35 @@
   "yearFounded": 1970,
   "annualFunding": "£4m",
   "contact": {
-    "email": "🔴 [EMAIL NEEDED - verify correct contact email]",
-    "phone": "🔴 [PHONE NEEDED - add contact phone number]",
-    "address": "🔴 [ADDRESS NEEDED - add postal address for donations/correspondence]"
+    "email": "",
+    "phone": "",
+    "address": ""
   },
   "social": {
     "facebook": "https://www.facebook.com/littlewayassociation"
   },
   "donationUrl": "https://littlewayassociation.enthuse.com/Donate#!/",
   "navigation": [
-    { "label": "Home", "href": "/" },
-    { "label": "About Us", "href": "/about" },
-    { "label": "Our Work", "href": "/our-work" },
-    { "label": "What You Can Do", "href": "/get-involved" },
-    { "label": "Contact Us", "href": "/contact" }
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "About Us",
+      "href": "/about"
+    },
+    {
+      "label": "Our Work",
+      "href": "/our-work"
+    },
+    {
+      "label": "What You Can Do",
+      "href": "/get-involved"
+    },
+    {
+      "label": "Contact Us",
+      "href": "/contact"
+    }
   ],
   "cta": {
     "primary": "Donate Now",
@@ -27,12 +42,30 @@
   },
   "footer": {
     "links": [
-      { "label": "About us", "href": "/about" },
-      { "label": "Our work", "href": "/our-work" },
-      { "label": "What you can do", "href": "/get-involved" },
-      { "label": "Donate", "href": "/donate" },
-      { "label": "Contact us", "href": "/contact" },
-      { "label": "Terms & conditions", "href": "/terms" }
+      {
+        "label": "About us",
+        "href": "/about"
+      },
+      {
+        "label": "Our work",
+        "href": "/our-work"
+      },
+      {
+        "label": "What you can do",
+        "href": "/get-involved"
+      },
+      {
+        "label": "Donate",
+        "href": "/donate"
+      },
+      {
+        "label": "Contact us",
+        "href": "/contact"
+      },
+      {
+        "label": "Terms & conditions",
+        "href": "/terms"
+      }
     ]
   }
 }
