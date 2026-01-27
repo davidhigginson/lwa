@@ -25,19 +25,33 @@ export default async function AboutPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-heading text-neutral-900">
-              About Us
+              {aboutData.hero.title}
             </h1>
+            {aboutData.hero.subtitle && (
+              <p className="text-xl text-neutral-600 mt-4">
+                {aboutData.hero.subtitle}
+              </p>
+            )}
           </div>
         </div>
       </section>
 
-      {/* About Us Section */}
+      {/* Origin Section */}
       <section className="pt-8 pb-12 md:pt-12 md:pb-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-heading text-neutral-900 mb-6">
+              {aboutData.origin.title}
+            </h2>
             <div className="prose prose-lg max-w-none text-neutral-600 leading-relaxed">
+              <p className="mb-6">
+                {aboutData.origin.content}
+              </p>
+              <h3 className="text-xl font-heading text-neutral-900 mb-4">
+                {aboutData.howToHelp.title}
+              </h3>
               <p className="mb-4">
-                {aboutData.origin.content} {aboutData.howToHelp.content}
+                {aboutData.howToHelp.content}
               </p>
               <p className="text-neutral-500 text-sm font-medium">
                 Registered Charity No. 235703
@@ -52,8 +66,13 @@ export default async function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-heading text-neutral-900 mb-6">
-              ST. THERESE & THE LITTLE WAY
+              {aboutData.stTherese.title}
             </h2>
+            {aboutData.stTherese.subtitle && (
+              <p className="text-xl text-primary-600 font-medium mb-4">
+                {aboutData.stTherese.subtitle}
+              </p>
+            )}
             <p className="text-neutral-600 mb-8 leading-relaxed">
               {aboutData.stTherese.intro}
             </p>
