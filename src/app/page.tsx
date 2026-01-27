@@ -20,7 +20,7 @@ export default function HomePage() {
   return (
     <>
       <Hero
-        title="Welcome to the Little Way Association website"
+        title="Welcome to the Little Way Association"
         subtitle="Will you enable a missionary priest or sister to carry the love, care and compassion of Christ to those of our brothers and sisters in dire distress and in urgent need of help?"
         ctaPrimary={{ label: "Donate Now", href: "/donate" }}
         ctaSecondary={{ label: "Learn More", href: "/about" }}

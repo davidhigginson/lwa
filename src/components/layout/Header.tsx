@@ -85,24 +85,22 @@ export function Header() {
               <Heart className="w-4 h-4" />
               Donate Now
             </Button>
-            {/* Saint Therese Portrait Image */}
-            {pathname === "/" && (
-              <div className="relative h-[104px] w-auto flex items-center">
-                <Image
-                  src="/images/saint-therese-portrait.png"
-                  alt="Saint Thérèse of Lisieux"
-                  width={78}
-                  height={91}
-                  className="object-contain h-[104px] w-auto"
-                  priority
-                />
-              </div>
-            )}
+            {/* Tess Image */}
+            <div className="relative h-[104px] w-auto flex items-center">
+              <Image
+                src="/images/about/tess.png"
+                alt="Tess"
+                width={78}
+                height={91}
+                className="object-contain h-[104px] w-auto"
+                priority
+              />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-neutral-700 hover:text-primary-600 transition-colors"
+            className="lg:hidden ml-auto md:ml-0 p-2 text-neutral-700 hover:text-primary-600 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -142,20 +140,6 @@ export function Header() {
                 Donate Now
               </Button>
             </div>
-            {/* Mobile: Show image on home page */}
-            {pathname === "/" && (
-              <div className="px-4 pt-4 flex justify-end">
-                <div className="relative h-[80px] w-auto flex items-center">
-                  <Image
-                    src="/images/saint-therese-portrait.png"
-                    alt="Saint Thérèse of Lisieux"
-                    width={78}
-                    height={91}
-                    className="object-contain h-[80px] w-auto"
-                  />
-                </div>
-              </div>
-            )}
           </nav>
         </div>
         </div>
