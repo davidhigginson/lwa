@@ -55,25 +55,69 @@ const client = createClient({
   useCdn: false,
 })
 
+// Helper to clean text (remove emojis and placeholders)
+function cleanText(text) {
+  if (typeof text !== 'string') return text
+  
+  // Remove 🔴 emoji
+  let cleaned = text.replace(/🔴\s*/g, '')
+  
+  // Remove placeholder patterns
+  cleaned = cleaned.replace(/\[.*?NEEDED.*?\]/gi, '')
+  cleaned = cleaned.replace(/\[.*?verify.*?\]/gi, '')
+  cleaned = cleaned.replace(/\[.*?add.*?\]/gi, '')
+  
+  return cleaned.trim()
+}
+
+// Recursively clean object
+function cleanObject(obj) {
+  if (typeof obj !== 'object' || obj === null) {
+    return typeof obj === 'string' ? cleanText(obj) : obj
+  }
+  
+  if (Array.isArray(obj)) {
+    return obj.map(cleanObject)
+  }
+  
+  const cleaned = {}
+  for (const [key, value] of Object.entries(obj)) {
+    if (typeof value === 'string') {
+      cleaned[key] = cleanText(value)
+    } else if (Array.isArray(value)) {
+      cleaned[key] = value.map(cleanObject)
+    } else if (typeof value === 'object' && value !== null && !value._type && !value._ref) {
+      // Don't clean Sanity references
+      cleaned[key] = cleanObject(value)
+    } else {
+      cleaned[key] = value
+    }
+  }
+  return cleaned
+}
+
 // Helper to create or update document
 async function createOrUpdateDocument(type, data, idField = '_id') {
   try {
+    // Clean the data before importing
+    const cleanedData = cleanObject(data)
+    
     const existing = await client.fetch(`*[_type == $type && ${idField} == $id][0]`, {
       type,
-      id: data[idField] || data.id,
+      id: cleanedData[idField] || cleanedData.id,
     })
 
     if (existing) {
-      console.log(`  ✓ Updating existing ${type}: ${data[idField] || data.id}`)
+      console.log(`  ✓ Updating existing ${type}: ${cleanedData[idField] || cleanedData.id}`)
       return await client
         .patch(existing._id)
-        .set(data)
+        .set(cleanedData)
         .commit()
     } else {
-      console.log(`  ✓ Creating new ${type}: ${data[idField] || data.id}`)
+      console.log(`  ✓ Creating new ${type}: ${cleanedData[idField] || cleanedData.id}`)
       return await client.create({
         _type: type,
-        ...data,
+        ...cleanedData,
       })
     }
   } catch (error) {
