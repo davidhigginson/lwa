@@ -90,8 +90,8 @@ export interface Project {
   location: string;
   country: string;
   region: string;
-  category: string | { _ref: string; _type: string };
-  image: string | { asset: { _ref: string; _type: string } };
+  category: string;
+  image: string;
   summary: string;
   description: string;
   impact?: string;
@@ -243,20 +243,21 @@ export async function getProjects(): Promise<Project[]> {
     try {
       const data = await client.fetch(projectsQuery)
       if (data && data.length > 0) {
-        return data.map((proj: any) => ({
+        return data.map((proj: any): Project => ({
           ...proj,
           category: normalizeCategory(proj.category),
           image: normalizeImage(proj.image),
-        })) as Project[]
+        }))
       }
     } catch (error) {
       console.warn('Failed to fetch from Sanity, using JSON fallback:', error)
     }
   }
-  return projectsData.projects.map((p) => ({
+  return projectsData.projects.map((p): Project => ({
     ...p,
     category: typeof p.category === 'string' ? p.category : p.category,
-  })) as Project[]
+    image: typeof p.image === 'string' ? p.image : p.image,
+  }))
 }
 
 export async function getProjectById(id: string): Promise<Project | undefined> {
@@ -278,6 +279,7 @@ export async function getProjectById(id: string): Promise<Project | undefined> {
   return project ? {
     ...project,
     category: typeof project.category === 'string' ? project.category : project.category,
+    image: typeof project.image === 'string' ? project.image : project.image,
   } as Project : undefined
 }
 
@@ -291,11 +293,11 @@ export async function getProjectsByCategory(categoryId: string): Promise<Project
     try {
       const data = await client.fetch(projectsByCategoryQuery, { categoryId })
       if (data && data.length > 0) {
-        return data.map((proj: any) => ({
+        return data.map((proj: any): Project => ({
           ...proj,
           category: normalizeCategory(proj.category),
           image: normalizeImage(proj.image),
-        })) as Project[]
+        }))
       }
     } catch (error) {
       console.warn('Failed to fetch from Sanity, using JSON fallback:', error)
@@ -313,11 +315,11 @@ export async function getProjectsByRegion(region: string): Promise<Project[]> {
     try {
       const data = await client.fetch(projectsByRegionQuery, { region })
       if (data && data.length > 0) {
-        return data.map((proj: any) => ({
+        return data.map((proj: any): Project => ({
           ...proj,
           category: normalizeCategory(proj.category),
           image: normalizeImage(proj.image),
-        })) as Project[]
+        }))
       }
     } catch (error) {
       console.warn('Failed to fetch from Sanity, using JSON fallback:', error)

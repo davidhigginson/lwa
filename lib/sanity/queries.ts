@@ -38,7 +38,15 @@ export const projectsByCategoryQuery = groq`*[_type == "project" && category->id
     description
   }
 }`
-export const projectsByRegionQuery = groq`*[_type == "project" && region == $region] | order(title asc)`
+export const projectsByRegionQuery = groq`*[_type == "project" && region == $region] | order(title asc){
+  ...,
+  category->{
+    _id,
+    id,
+    name,
+    description
+  }
+}`
 export const aboutQuery = groq`*[_type == "about"][0]{
   ...,
   stTherese{
