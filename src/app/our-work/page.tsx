@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Heart, MapPin, Filter, Droplets, Home, GraduationCap, Utensils, Baby, Bath, Church, AlertTriangle, LayoutGrid } from "lucide-react";
 import { ProjectCard, Button } from "@/components/ui";
 import { CTASection } from "@/components/sections";
-import projectsData from "@/content/projects.json";
+import { getProjects, getProjectCategories } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Our Work",
@@ -36,7 +36,9 @@ export default async function OurWorkPage({ searchParams }: OurWorkPageProps) {
   const params = await searchParams;
   const selectedCategory = params.category;
 
-  let filteredProjects = projectsData.projects;
+  const allProjects = await getProjects();
+  const categories = await getProjectCategories();
+  let filteredProjects = allProjects;
 
   if (selectedCategory) {
     filteredProjects = filteredProjects.filter(
@@ -93,7 +95,7 @@ export default async function OurWorkPage({ searchParams }: OurWorkPageProps) {
                 <LayoutGrid className="w-4 h-4" />
                 All Projects
               </Link>
-              {projectsData.categories.map((category) => (
+              {categories.map((category) => (
                 <Link
                   key={category.id}
                   href={`/our-work?category=${category.id}`}

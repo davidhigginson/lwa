@@ -1,7 +1,7 @@
 import { ProjectCard } from "@/components/ui";
 import { Button } from "@/components/ui";
 import { ArrowRight } from "lucide-react";
-import projectsData from "@/content/projects.json";
+import { getProjects } from "@/lib/content";
 
 interface ProjectsGridProps {
   title?: string;
@@ -12,7 +12,7 @@ interface ProjectsGridProps {
   category?: string;
 }
 
-export function ProjectsGrid({
+export async function ProjectsGrid({
   title = "Recent Projects",
   subtitle = "See how your donations are making a difference around the world",
   showFeaturedOnly = false,
@@ -20,7 +20,8 @@ export function ProjectsGrid({
   showViewAll = true,
   category,
 }: ProjectsGridProps) {
-  let projects = projectsData.projects;
+  const allProjects = await getProjects();
+  let projects = allProjects;
 
   if (showFeaturedOnly) {
     projects = projects.filter((p) => p.featured);

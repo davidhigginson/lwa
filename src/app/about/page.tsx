@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import { CTASection } from "@/components/sections";
-import aboutData from "@/content/about.json";
+import { getAboutContent } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const aboutData = await getAboutContent();
   return (
     <>
       {/* Hero Section */}
@@ -62,7 +63,7 @@ export default function AboutPage() {
               <div className="lg:col-span-1">
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
                   <Image
-                    src="/images/about/therese.jpg"
+                    src={typeof aboutData.stTherese.image === 'string' ? aboutData.stTherese.image : '/images/about/therese.jpg'}
                     alt="St. Therese of Lisieux"
                     fill
                     className="object-cover"

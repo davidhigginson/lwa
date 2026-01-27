@@ -173,17 +173,36 @@ export interface AboutContent {
 
 
 // Helper to normalize project category
-const normalizeCategory = (category: string | { _ref: string; _type: string }): string => {
+const normalizeCategory = (category: string | { _ref: string; _type: string } | { id?: string; _id?: string; _ref?: string }): string => {
   if (typeof category === 'string') return category
-  return category._ref
+  // If category is expanded from Sanity (has id field), use that
+  if (category && typeof category === 'object' && 'id' in category && category.id) {
+    return category.id
+  }
+  // Otherwise return the ref
+  return category._ref || ''
 }
 
 // Helper to normalize image
-const normalizeImage = (image: string | { asset: { _ref: string; _type: string } }): string => {
+const normalizeImage = (image: string | { asset?: { _ref?: string; _type?: string; url?: string } | { _ref: string; _type: string } } | { _type?: string; asset?: { _ref?: string; _type?: string; url?: string } }): string => {
   if (typeof image === 'string') return image
-  // For Sanity images, we'll need to use urlFor helper
-  // For now, return a placeholder or handle in components
-  return image.asset._ref
+  // For Sanity images, convert to URL
+  if (isSanityConfigured() && image && typeof image === 'object') {
+    try {
+      // If asset has a direct URL, use it
+      if (image.asset && 'url' in image.asset && image.asset.url) {
+        return image.asset.url
+      }
+      // Otherwise use urlFor to build the URL
+      const { urlFor } = require('../../lib/sanity/client')
+      const url = urlFor(image).url()
+      return url || ''
+    } catch (e) {
+      console.warn('Failed to convert Sanity image to URL:', e)
+      return ''
+    }
+  }
+  return ''
 }
 
 // Content getters with Sanity support and JSON fallback
@@ -256,7 +275,10 @@ export async function getProjectById(id: string): Promise<Project | undefined> {
     }
   }
   const project = projectsData.projects.find((p) => p.id === id)
-  return project as Project | undefined
+  return project ? {
+    ...project,
+    category: typeof project.category === 'string' ? project.category : project.category,
+  } as Project : undefined
 }
 
 export async function getFeaturedProjects(): Promise<Project[]> {
@@ -310,11 +332,16 @@ export async function getAboutContent(): Promise<AboutContent> {
     try {
       const data = await client.fetch(aboutQuery)
       if (data) {
+        // Convert Sanity image to URL if it exists
+        const stThereseImage = data.stTherese?.image 
+          ? normalizeImage(data.stTherese.image) 
+          : (aboutData as AboutContent).stTherese.image
+        
         return {
           ...data,
           stTherese: {
             ...data.stTherese,
-            image: normalizeImage(data.stTherese.image),
+            image: stThereseImage,
           },
         } as AboutContent
       }

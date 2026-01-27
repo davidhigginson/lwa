@@ -1,9 +1,13 @@
 import Image from "next/image";
 import { Button } from "@/components/ui";
 import { ArrowRight, Heart, CheckCircle2 } from "lucide-react";
-import aboutData from "@/content/about.json";
+import type { AboutContent } from "@/lib/content";
 
-export function AboutPreview() {
+interface AboutPreviewProps {
+  aboutData: AboutContent;
+}
+
+export function AboutPreview({ aboutData }: AboutPreviewProps) {
   const highlights = [
     "Any donation is used entirely for the purpose(s) specified by the donor",
     "We have a separate fund for administrative expenses",

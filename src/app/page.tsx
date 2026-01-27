@@ -9,14 +9,15 @@ import {
   CTASection,
   TestimonialsGrid,
 } from "@/components/sections";
-import aboutData from "@/content/about.json";
+import { getAboutContent } from "@/lib/content";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: { url: "/" },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const aboutData = await getAboutContent();
   return (
     <>
       <Hero
@@ -69,7 +70,7 @@ export default function HomePage() {
         </div>
       </section>
       
-      <AboutPreview />
+      <AboutPreview aboutData={aboutData} />
 
       <TestimonialsGrid variant="light" />
       
