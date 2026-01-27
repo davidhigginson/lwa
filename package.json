@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "import:sanity": "node scripts/import-to-sanity.js"
   },
   "dependencies": {
     "@sanity/client": "^7.14.1",

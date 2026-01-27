@@ -62,6 +62,7 @@ export default defineType({
         hotspot: true,
       },
       validation: (Rule) => Rule.required(),
+      description: 'Upload an image or use the existing image URL',
     }),
     defineField({
       name: 'summary',

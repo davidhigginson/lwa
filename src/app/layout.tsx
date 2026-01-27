@@ -5,6 +5,7 @@ import "./globals.css";
 import siteData from "@/content/site.json";
 import { DEFAULT_OG_IMAGE, getMetadataBase } from "@/lib/seo";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
+import { ConditionalLayout } from "./ConditionalLayout";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -73,10 +74,7 @@ export default function RootLayout({
           fontFamily: "var(--font-dm-sans), system-ui, sans-serif",
         }}
       >
-        <OrganizationJsonLd />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );
