@@ -46,8 +46,11 @@ export default function DonatePage() {
                 <p className="text-neutral-600 text-base md:text-lg mb-4">
                   Enable missionary priests and sisters to carry the love and compassion of Christ to those in dire need. Your gift could mean the difference between life and death.
                 </p>
-                <p className="text-neutral-600 text-base md:text-lg">
+                <p className="text-neutral-600 text-base md:text-lg mb-4">
                   Whether you give once or set up a regular donation, every contribution makes a lasting difference in the lives of the poorest of the poor around the world.
+                </p>
+                <p className="text-neutral-600 text-base md:text-lg">
+                  Please note that when donating you will be given the option of leaving a voluntary tip for Enthuse, who handle the processing of our online payments. This tip helps Enthuse to cover their costs and does not go to the Little Way (we have a separate fund for our technology costs). If you do not wish to leave a tip, click on the drop-down box, select &apos;Other&apos; and enter 0.
                 </p>
               </div>
 

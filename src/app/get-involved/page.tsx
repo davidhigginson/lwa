@@ -5,7 +5,9 @@ import {
   Church, 
   Mail,
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  Users,
+  Home
 } from "lucide-react";
 import { Button } from "@/components/ui";
 import { CTASection } from "@/components/sections";
@@ -38,8 +40,22 @@ const waysToHelp = [
   },
   {
     icon: <Church className="w-8 h-8" />,
-    title: "Pray for Our Mission",
-    description: "Join us in prayer for all those we serve and for our missionary partners around the world.",
+    title: "Prayer Support",
+    description: "St. Therese believed that by living a contemplative life of prayer and service she was able to support the wider church working far beyond the walls of her convent. She hoped to \"preach the Gospel to the farthest islands to the end of time\". Please support our work through your prayers. St. Therese believed that by trusting in God and regular prayer we can reach out to others and spread the Gospel.",
+    cta: null,
+    featured: false,
+  },
+  {
+    icon: <Users className="w-8 h-8" />,
+    title: "Volunteer",
+    description: "Some supporters volunteer to work at our London headquarters at Sacred Heart House. Because of such volunteers we are able to keep our costs down and send all the money we receive to those in need without deduction. Those with secretarial experience and good writing skills, who can volunteer to help over a period of time, would be very welcome. Our office in south London is accessible by tube, rail and bus, and has off-street parking.",
+    cta: null,
+    featured: false,
+  },
+  {
+    icon: <Home className="w-8 h-8" />,
+    title: "Little Way Theresian Houses",
+    description: "We also need help running our Pilgrimage Centres at Knock, and Walsingham (would suit active retired couples) with an interest in the mission apostolate. Our houses offer accommodation to pilgrims wishing to spend a few days in prayer at a Marian shrine. The work involves general housekeeping duties, providing guests with a light breakfast, and encouraging prayer for the Missions. For more information contact Maria Grcar at Sacred Heart House (email maria.grcar@littlewayassociation.com)",
     cta: null,
     featured: false,
   },
@@ -184,8 +200,11 @@ export default function GetInvolvedPage() {
             <p className="text-neutral-600 mb-4">
               Any donation which is sent to us by post, by banker&apos;s order, or online through this website is used entirely for the purpose(s) specified by the donor (we have a separate fund for administrative expenses).
             </p>
-            <p className="text-neutral-600">
+            <p className="text-neutral-600 mb-4">
               We make sure that the money goes to help those in the greatest need by ensuring that all projects we support are supervised by the local bishop or missionary society.
+            </p>
+            <p className="text-neutral-600">
+              If you wish to donate to a particular project by post you can send us a cheque, specifying which project or area you would like to support. Please make your cheques payable to &apos;The Little Way Association&apos;, and post to Sacred Heart House, 119 Cedars Road, Clapham Common, London SW4 0PR. Please send us your name and address with each donation so we can acknowledge receipt. We also have a fund for administrative expenses (which includes the upkeep of Sacred Heart House). If you wish to contribute to this fund, please let us know when you donate.
             </p>
           </div>
         </div>

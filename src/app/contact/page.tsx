@@ -108,8 +108,7 @@ export default function ContactPage() {
                 {/* Mailing List Notice */}
                 <div className="bg-primary-50 border border-primary-100 rounded-xl p-6">
                   <p className="text-neutral-700 text-sm">
-                    All our supporters are placed on our mailing list (unless they tell us otherwise) 
-                    so they can receive our quarterly booklets and newsletters.
+                    Supporters receive our Little Way booklets and newsletters. Please ask us for copies of our booklets to help make known the message of St Therese and our work for the Missions, e.g. by giving them to friends or relatives. Do consider asking your parish priest if he is agreeable to a few of our booklets being left at the back of the church.
                   </p>
                 </div>
               </div>
@@ -228,7 +227,7 @@ export default function ContactPage() {
                 },
                 {
                   question: "How can I leave a legacy gift?",
-                  answer: "If you're interested in leaving a gift in your will, please contact us for more information. Legacy gifts help ensure our work continues for future generations.",
+                  answer: "Many of our supporters leave a legacy for the Little Way Association in their will. Mass is offered each day for benefactors both living and dead. The Form of Bequest given below should be incorporated in your will, signed and witnessed: \"I __________ GIVE the sum of £ __________ FREE OF DUTY to the charitable organisation known as The Little Way Association of Sacred Heart House, 119 Cedars Road, London SW4 0PR (Charity Registration No. 235703), to be applied for its general charitable purposes, and I DECLARE that the receipt of the President or other authorised officer for the time being of such organisation shall be a full and sufficient discharge for my executor.\" Please contact us if you require further information.",
                   verified: false
                 },
               ].map((faq, index) => (

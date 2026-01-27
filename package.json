@@ -3,22 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tinacms dev -c \"next dev\"",
-    "build": "node scripts/build.js",
-    "build:tina": "tinacms build && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "check:tinacloud": "node scripts/check-tinacloud.js"
+    "lint": "eslint"
   },
   "dependencies": {
-    "@tinacms/cli": "^2.1.2",
+    "@sanity/client": "^7.14.1",
+    "@sanity/image-url": "^2.0.3",
+    "@sanity/vision": "^5.7.0",
     "clsx": "^2.1.1",
+    "groq": "^5.7.0",
     "lucide-react": "^0.561.0",
     "next": "16.0.10",
+    "next-sanity": "^12.0.14",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "tailwind-merge": "^3.4.0",
-    "tinacms": "^3.3.2"
+    "sanity": "^5.7.0",
+    "styled-components": "^6.3.8",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

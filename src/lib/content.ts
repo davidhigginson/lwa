@@ -1,16 +1,45 @@
 /**
  * Content Management System
  * 
- * This file provides type-safe access to the JSON-based content files.
- * To update content, edit the JSON files in /src/content/
- * 
- * For a more advanced CMS, this could be replaced with:
- * - Sanity.io
- * - Contentful
- * - Strapi
- * - MDX files with gray-matter
+ * This file provides type-safe access to content from Sanity CMS.
+ * Falls back to JSON files if Sanity is not configured.
  */
 
+// Conditional Sanity imports - only import if configured
+const isSanityConfigured = () => {
+  return typeof window === 'undefined' && !!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID && process.env.NEXT_PUBLIC_SANITY_PROJECT_ID !== ''
+}
+
+let client: any = null
+let siteQuery: any = null
+let projectCategoriesQuery: any = null
+let projectsQuery: any = null
+let projectByIdQuery: any = null
+let featuredProjectsQuery: any = null
+let projectsByCategoryQuery: any = null
+let projectsByRegionQuery: any = null
+let aboutQuery: any = null
+
+if (isSanityConfigured()) {
+  try {
+    const sanityClient = require('../../lib/sanity/client').client
+    const queries = require('../../lib/sanity/queries')
+    client = sanityClient
+    siteQuery = queries.siteQuery
+    projectCategoriesQuery = queries.projectCategoriesQuery
+    projectsQuery = queries.projectsQuery
+    projectByIdQuery = queries.projectByIdQuery
+    featuredProjectsQuery = queries.featuredProjectsQuery
+    projectsByCategoryQuery = queries.projectsByCategoryQuery
+    projectsByRegionQuery = queries.projectsByRegionQuery
+    aboutQuery = queries.aboutQuery
+  } catch (e) {
+    // Sanity not available - will use JSON fallback
+    console.warn('Sanity not available, using JSON fallback')
+  }
+}
+
+// Fallback imports
 import siteData from "@/content/site.json";
 import projectsData from "@/content/projects.json";
 import aboutData from "@/content/about.json";
@@ -40,12 +69,19 @@ export interface SiteConfig {
     primary: string;
     secondary: string;
   };
+  footer?: {
+    links: {
+      label: string;
+      href: string;
+    }[];
+  };
 }
 
 export interface ProjectCategory {
   id: string;
   name: string;
   description: string;
+  _id?: string;
 }
 
 export interface Project {
@@ -54,12 +90,14 @@ export interface Project {
   location: string;
   country: string;
   region: string;
-  category: string;
-  image: string;
+  category: string | { _ref: string; _type: string };
+  image: string | { asset: { _ref: string; _type: string } };
   summary: string;
   description: string;
-  impact: string;
+  impact?: string;
   featured: boolean;
+  sourceVerified?: boolean;
+  _id?: string;
 }
 
 export interface AboutContent {
@@ -105,7 +143,7 @@ export interface AboutContent {
     quote1: string;
     death: string;
     legacy: string;
-    image: string;
+    image: string | { asset: { _ref: string; _type: string } };
   };
   littleWay: {
     title: string;
@@ -133,47 +171,168 @@ export interface AboutContent {
   }[];
 }
 
-// Content getters with type safety
-export function getSiteConfig(): SiteConfig {
-  return siteData as SiteConfig;
+
+// Helper to normalize project category
+const normalizeCategory = (category: string | { _ref: string; _type: string }): string => {
+  if (typeof category === 'string') return category
+  return category._ref
 }
 
-export function getProjects(): Project[] {
-  return projectsData.projects as Project[];
+// Helper to normalize image
+const normalizeImage = (image: string | { asset: { _ref: string; _type: string } }): string => {
+  if (typeof image === 'string') return image
+  // For Sanity images, we'll need to use urlFor helper
+  // For now, return a placeholder or handle in components
+  return image.asset._ref
 }
 
-export function getProjectById(id: string): Project | undefined {
-  return projectsData.projects.find((p) => p.id === id) as Project | undefined;
+// Content getters with Sanity support and JSON fallback
+export async function getSiteConfig(): Promise<SiteConfig> {
+  if (isSanityConfigured()) {
+    try {
+      const data = await client.fetch(siteQuery)
+      if (data) {
+        return data as SiteConfig
+      }
+    } catch (error) {
+      console.warn('Failed to fetch from Sanity, using JSON fallback:', error)
+    }
+  }
+  return siteData as SiteConfig
 }
 
-export function getFeaturedProjects(): Project[] {
-  return projectsData.projects.filter((p) => p.featured) as Project[];
+export async function getProjectCategories(): Promise<ProjectCategory[]> {
+  if (isSanityConfigured()) {
+    try {
+      const data = await client.fetch(projectCategoriesQuery)
+      if (data && data.length > 0) {
+        return data.map((cat: any) => ({
+          id: cat.id,
+          name: cat.name,
+          description: cat.description,
+        })) as ProjectCategory[]
+      }
+    } catch (error) {
+      console.warn('Failed to fetch from Sanity, using JSON fallback:', error)
+    }
+  }
+  return projectsData.categories as ProjectCategory[]
 }
 
-export function getProjectsByCategory(categoryId: string): Project[] {
-  return projectsData.projects.filter((p) => p.category === categoryId) as Project[];
+export async function getProjects(): Promise<Project[]> {
+  if (isSanityConfigured()) {
+    try {
+      const data = await client.fetch(projectsQuery)
+      if (data && data.length > 0) {
+        return data.map((proj: any) => ({
+          ...proj,
+          category: normalizeCategory(proj.category),
+          image: normalizeImage(proj.image),
+        })) as Project[]
+      }
+    } catch (error) {
+      console.warn('Failed to fetch from Sanity, using JSON fallback:', error)
+    }
+  }
+  return projectsData.projects.map((p) => ({
+    ...p,
+    category: typeof p.category === 'string' ? p.category : p.category,
+  })) as Project[]
 }
 
-export function getProjectsByRegion(region: string): Project[] {
-  return projectsData.projects.filter((p) => p.region === region) as Project[];
+export async function getProjectById(id: string): Promise<Project | undefined> {
+  if (isSanityConfigured()) {
+    try {
+      const data = await client.fetch(projectByIdQuery, { id })
+      if (data) {
+        return {
+          ...data,
+          category: normalizeCategory(data.category),
+          image: normalizeImage(data.image),
+        } as Project
+      }
+    } catch (error) {
+      console.warn('Failed to fetch from Sanity, using JSON fallback:', error)
+    }
+  }
+  const project = projectsData.projects.find((p) => p.id === id)
+  return project as Project | undefined
 }
 
-export function getProjectCategories(): ProjectCategory[] {
-  return projectsData.categories as ProjectCategory[];
+export async function getFeaturedProjects(): Promise<Project[]> {
+  const projects = await getProjects()
+  return projects.filter((p) => p.featured)
 }
 
-export function getAboutContent(): AboutContent {
-  return aboutData as AboutContent;
+export async function getProjectsByCategory(categoryId: string): Promise<Project[]> {
+  if (isSanityConfigured()) {
+    try {
+      const data = await client.fetch(projectsByCategoryQuery, { categoryId })
+      if (data && data.length > 0) {
+        return data.map((proj: any) => ({
+          ...proj,
+          category: normalizeCategory(proj.category),
+          image: normalizeImage(proj.image),
+        })) as Project[]
+      }
+    } catch (error) {
+      console.warn('Failed to fetch from Sanity, using JSON fallback:', error)
+    }
+  }
+  const projects = await getProjects()
+  return projects.filter((p) => {
+    const cat = normalizeCategory(p.category)
+    return cat === categoryId
+  })
+}
+
+export async function getProjectsByRegion(region: string): Promise<Project[]> {
+  if (isSanityConfigured()) {
+    try {
+      const data = await client.fetch(projectsByRegionQuery, { region })
+      if (data && data.length > 0) {
+        return data.map((proj: any) => ({
+          ...proj,
+          category: normalizeCategory(proj.category),
+          image: normalizeImage(proj.image),
+        })) as Project[]
+      }
+    } catch (error) {
+      console.warn('Failed to fetch from Sanity, using JSON fallback:', error)
+    }
+  }
+  const projects = await getProjects()
+  return projects.filter((p) => p.region === region)
+}
+
+export async function getAboutContent(): Promise<AboutContent> {
+  if (isSanityConfigured()) {
+    try {
+      const data = await client.fetch(aboutQuery)
+      if (data) {
+        return {
+          ...data,
+          stTherese: {
+            ...data.stTherese,
+            image: normalizeImage(data.stTherese.image),
+          },
+        } as AboutContent
+      }
+    } catch (error) {
+      console.warn('Failed to fetch from Sanity, using JSON fallback:', error)
+    }
+  }
+  return aboutData as AboutContent
 }
 
 // Get unique regions from projects
-export function getRegions(): string[] {
-  return [...new Set(projectsData.projects.map((p) => p.region))];
+export async function getRegions(): Promise<string[]> {
+  const projects = await getProjects()
+  return [...new Set(projects.map((p) => p.region))]
 }
 
 // Get unique countries from projects
-export function getCountries(): string[] {
-  return [...new Set(projectsData.projects.map((p) => p.country))];
+export async function getCountries(): Promise<string[]> {
+  const projects = await getProjects()
+  return [...new Set(projects.map((p) => p.country))]
 }
-
-

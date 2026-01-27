@@ -1,82 +1,76 @@
+import Link from 'next/link'
+
 export default function AdminPage() {
+  const hasSanityConfig = !!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+
   return (
-    <div style={{ 
-      padding: "2rem", 
-      maxWidth: "800px", 
-      margin: "0 auto",
-      fontFamily: "system-ui, sans-serif",
-      lineHeight: "1.6"
-    }}>
-      <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>TinaCMS Admin Interface</h1>
-      <p style={{ fontSize: "1.1rem", marginBottom: "1.5rem", color: "#666" }}>
-        The admin interface is not available because the TinaCMS build files were not generated.
-      </p>
-      
-      <div style={{ 
-        backgroundColor: "#f0f7ff", 
-        border: "1px solid #0066cc", 
-        borderRadius: "8px", 
-        padding: "1.5rem",
-        marginBottom: "2rem"
-      }}>
-        <h2 style={{ fontSize: "1.5rem", marginTop: 0, marginBottom: "1rem" }}>Why is this happening?</h2>
-        <p>
-          The admin interface requires TinaCloud to be properly configured and your branch to be indexed.
-          Currently, your &apos;main&apos; branch is not indexed in TinaCloud, so the build skipped generating the admin files.
-        </p>
-      </div>
-      
-      <div style={{ marginBottom: "2rem" }}>
-        <h2 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>How to fix this:</h2>
-        <ol style={{ paddingLeft: "1.5rem" }}>
-          <li style={{ marginBottom: "0.75rem" }}>
-            Go to{" "}
-            <a 
-              href="https://app.tina.io/projects/cdd00442-9e62-469b-9608-6695495f5a12/configuration"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#0066cc", textDecoration: "underline" }}
-            >
-              your TinaCloud configuration page
-            </a>
-          </li>
-          <li style={{ marginBottom: "0.75rem" }}>
-            Find the &quot;1 branch unindexed&quot; section and click on it to trigger indexing
-          </li>
-          <li style={{ marginBottom: "0.75rem" }}>
-            Wait for indexing to complete (this may take 5-15 minutes)
-          </li>
-          <li style={{ marginBottom: "0.75rem" }}>
-            Once indexed, redeploy your site on Vercel
-          </li>
-          <li>
-            The admin interface will be available at <code style={{ 
-              backgroundColor: "#f5f5f5", 
-              padding: "2px 6px", 
-              borderRadius: "3px",
-              fontFamily: "monospace"
-            }}>/admin</code> once the build completes
-          </li>
-        </ol>
-      </div>
-      
-      <div style={{ 
-        backgroundColor: "#f9f9f9", 
-        border: "1px solid #ddd", 
-        borderRadius: "8px", 
-        padding: "1.5rem"
-      }}>
-        <h2 style={{ fontSize: "1.5rem", marginTop: 0, marginBottom: "1rem" }}>For local development:</h2>
-        <p style={{ marginBottom: 0 }}>
-          Run <code style={{ 
-            backgroundColor: "#f5f5f5", 
-            padding: "2px 6px", 
-            borderRadius: "3px",
-            fontFamily: "monospace"
-          }}>npm run dev</code> to access the admin interface locally. 
-          The admin interface works in development mode without TinaCloud.
-        </p>
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white shadow rounded-lg p-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Content Management
+          </h1>
+          
+          {hasSanityConfig ? (
+            <>
+              <p className="text-lg text-gray-600 mb-8">
+                Manage your website content through Sanity CMS
+              </p>
+              
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+                <h2 className="text-xl font-semibold text-gray-900 mb-3">
+                  Sanity Studio
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  Access the Sanity Studio to edit all your content in a visual interface.
+                </p>
+                <Link
+                  href="/studio"
+                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Open Sanity Studio →
+                </Link>
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="text-lg text-gray-600 mb-8">
+                Sanity CMS is not configured yet. Please set up your Sanity project.
+              </p>
+              
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+                <h2 className="text-xl font-semibold text-gray-900 mb-3">
+                  Setup Required
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  To use Sanity CMS, you need to:
+                </p>
+                <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-4">
+                  <li>Create a Sanity project at <a href="https://www.sanity.io" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">sanity.io</a></li>
+                  <li>Get your Project ID</li>
+                  <li>Add <code className="bg-gray-100 px-1 rounded">NEXT_PUBLIC_SANITY_PROJECT_ID</code> to your environment variables</li>
+                  <li>Add <code className="bg-gray-100 px-1 rounded">NEXT_PUBLIC_SANITY_DATASET</code> (default: "production")</li>
+                </ol>
+                <p className="text-sm text-gray-600">
+                  See <code className="bg-gray-100 px-1 rounded">SANITY_SETUP.md</code> for detailed instructions.
+                </p>
+              </div>
+            </>
+          )}
+          
+          <div className="border-t border-gray-200 pt-6 mt-6">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              Content Types
+            </h2>
+            <div className="space-y-3 text-gray-700">
+              <p><strong>Site Configuration</strong> - Site settings, navigation, contact info</p>
+              <p><strong>Project Categories</strong> - Categories for organizing projects</p>
+              <p><strong>Projects</strong> - Individual project information</p>
+              <p><strong>About Page</strong> - About page content and sections</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  );
+  )
 }
