@@ -37,7 +37,7 @@ export default async function AboutPage() {
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-neutral-600 leading-relaxed">
               <p className="mb-4">
-                Our name comes from the &ldquo;little way&rdquo; of St. Therese of Lisieux, an enclosed Carmelite nun who lived in 19th century France. She saw her vocation as reaching far beyond the convent walls helping those in need throughout the world. The &ldquo;little way&rdquo; involves finding the spiritual in the little things of ordinary life. In this way, all of us can play our part in creating a better world. If you would like to help us in our work please consider supporting The Little Way Association by praying for our work, by making a donation (see the Donations page) or by volunteering to help at our headquarters in Sacred Heart House, London.
+                {aboutData.origin.content} {aboutData.howToHelp.content}
               </p>
               <p className="text-neutral-500 text-sm font-medium">
                 Registered Charity No. 235703
