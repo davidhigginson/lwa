@@ -42,9 +42,4 @@ next-env.d.ts
 
 # tina
 /admin
-!public/admin/
-!public/admin/**
 /.tina
-# Allow admin files in public/admin for deployment (until TinaCloud branch is indexed)
-!public/admin/
-!public/admin/**
