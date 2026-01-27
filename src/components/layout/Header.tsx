@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui";
-import { Menu, X, Heart, Facebook } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 import siteData from "@/content/site.json";
 
 export function Header() {
@@ -42,10 +42,11 @@ export function Header() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md"
       )}
     >
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+      <div className="w-full py-4">
+        <div className="container mx-auto">
+        <div className="flex items-center pl-4 pr-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link href="/" className="flex items-center group flex-shrink-0">
             <div className="relative h-[104px] w-auto flex items-center group-hover:opacity-80 transition-opacity">
               <Image
                 src="/images/logo-lwa.png"
@@ -59,13 +60,13 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 flex-1 justify-center">
             {siteData.navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors relative py-2",
+                  "text-sm font-medium transition-colors relative py-2 whitespace-nowrap",
                   pathname === item.href
                     ? "text-primary-600"
                     : "text-neutral-700 hover:text-primary-600",
@@ -79,20 +80,24 @@ export function Header() {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href={siteData.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:bg-[#166fe5] transition-colors"
-              aria-label="Follow us on Facebook"
-            >
-              <Facebook className="w-5 h-5" />
-            </a>
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0 ml-auto">
             <Button as="a" href="/donate" variant="primary" size="sm">
               <Heart className="w-4 h-4" />
               Donate Now
             </Button>
+            {/* Saint Therese Portrait Image */}
+            {pathname === "/" && (
+              <div className="relative h-[104px] w-auto flex items-center">
+                <Image
+                  src="/images/saint-therese-portrait.png"
+                  alt="Saint Thérèse of Lisieux"
+                  width={78}
+                  height={91}
+                  className="object-contain h-[104px] w-auto"
+                  priority
+                />
+              </div>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -137,7 +142,22 @@ export function Header() {
                 Donate Now
               </Button>
             </div>
+            {/* Mobile: Show image on home page */}
+            {pathname === "/" && (
+              <div className="px-4 pt-4 flex justify-end">
+                <div className="relative h-[80px] w-auto flex items-center">
+                  <Image
+                    src="/images/saint-therese-portrait.png"
+                    alt="Saint Thérèse of Lisieux"
+                    width={78}
+                    height={91}
+                    className="object-contain h-[80px] w-auto"
+                  />
+                </div>
+              </div>
+            )}
           </nav>
+        </div>
         </div>
       </div>
     </header>

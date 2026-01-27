@@ -19,7 +19,6 @@
     { "label": "About Us", "href": "/about" },
     { "label": "Our Work", "href": "/our-work" },
     { "label": "What You Can Do", "href": "/get-involved" },
-    { "label": "Donate", "href": "/donate" },
     { "label": "Contact Us", "href": "/contact" }
   ],
   "cta": {

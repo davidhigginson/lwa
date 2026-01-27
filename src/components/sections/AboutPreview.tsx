@@ -8,6 +8,7 @@ export function AboutPreview() {
     "Any donation is used entirely for the purpose(s) specified by the donor",
     "We have a separate fund for administrative expenses",
     "All projects supervised by the local bishop or missionary society",
+    "Mass is offered daily for all our supporters' intentions. Thank you so much for your prayers and your continued practical support",
   ];
 
   return (
