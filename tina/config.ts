@@ -363,6 +363,12 @@ export default defineConfig({
           include: "about.json",
         },
         format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
         fields: [
           {
             type: "object",
